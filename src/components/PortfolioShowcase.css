@@ -1,19 +1,23 @@
-/* PortfolioShowcase.css - Redesigned for Projects Carousel */
+/* PortfolioShowcase.css - Updated Layout matching mockups */
 .portfolio-section {
   padding: 8rem 0;
   position: relative;
   overflow: hidden;
-  background: var(--color-bg-dark);
+  background: #ffffff; /* Typically projects sections might pop more on a light bg or inherit */
+}
+
+.portfolio-section .container {
+  max-width: 1300px;
 }
 
 .section-header {
   text-align: center;
-  margin-bottom: 5rem;
+  margin-bottom: 3rem;
 }
 
 .projects-carousel-container {
   position: relative;
-  max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
   padding: 0 4rem;
 }
@@ -32,83 +36,74 @@
   flex: 0 0 100%;
   width: 100%;
   padding: 1rem;
-  opacity: 0.3;
-  transform: scale(0.95);
+  opacity: 0;
+  transform: scale(0.98);
   transition: all 0.6s ease;
+  pointer-events: none;
 }
 
 .project-slide.active {
   opacity: 1;
   transform: scale(1);
+  pointer-events: auto;
 }
 
-/* ── Project Card Design ── */
-.project-card {
-  background: rgba(0, 0, 0, 0.03);
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 24px;
+/* ── New Layout: Split Left / Right ── */
+.portfolio-slide-content {
+  display: flex;
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+  min-height: 500px;
+}
+
+.portfolio-graphics {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 3rem;
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 3rem;
-  min-height: 450px;
   position: relative;
-  backdrop-filter: blur(10px);
 }
 
-.project-info h3 {
-  font-size: 3rem;
-  font-weight: 900;
-  margin-bottom: 1rem;
-  letter-spacing: -0.02em;
+.portfolio-main-img {
+  max-width: 90%;
+  max-height: 480px;
+  object-fit: contain;
+  filter: drop-shadow(0 20px 30px rgba(0,0,0,0.15));
 }
 
-.project-client {
-  color: var(--color-accent-blue);
-  font-size: 0.9rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  margin-bottom: 2rem;
-  display: block;
+.portfolio-details {
+  flex: 1;
+  padding: 4rem 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #ffffff;
 }
 
-.project-description {
+.portfolio-logo-wrapper {
   margin-bottom: 2.5rem;
 }
 
-.project-description h4 {
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  color: var(--color-text-muted);
-  margin-bottom: 0.75rem;
+.portfolio-logo {
+  max-width: 280px;
+  max-height: 80px;
+  object-fit: contain;
+  display: block;
 }
 
-.project-description p {
-  color: var(--color-text-main);
-  font-size: 1.1rem;
-  line-height: 1.6;
+.portfolio-text p {
+  color: #4a4a4a;
+  font-size: 1.25rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  font-weight: 400;
 }
 
-.project-meta {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  margin-top: auto;
-}
-
-.meta-item h5 {
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--color-text-muted);
-  margin-bottom: 0.5rem;
-}
-
-.meta-item p {
-  font-weight: 600;
-  color: var(--color-text-main);
+.portfolio-text p:last-child {
+  margin-bottom: 0;
 }
 
 /* ── Carousel Controls ── */
@@ -116,75 +111,81 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
-  background: rgba(0, 0, 0, 0.05);
+  background: #ffffff;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  color: var(--color-text-main);
+  color: #333333;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   z-index: 20;
   transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 
 .carousel-btn:hover {
   background: var(--color-accent-blue);
   border-color: var(--color-accent-blue);
-  box-shadow: 0 0 20px rgba(53, 118, 193, 0.4);
+  color: #ffffff;
+  box-shadow: 0 4px 20px rgba(53, 118, 193, 0.4);
 }
 
-.carousel-btn.prev { left: -1rem; }
-.carousel-btn.next { right: -1rem; }
+.carousel-btn.prev { left: 0; }
+.carousel-btn.next { right: 0; }
 
 .carousel-pagination {
   display: flex;
   justify-content: center;
-  gap: 1rem;
+  gap: 0.8rem;
   margin-top: 3rem;
 }
 
 .pagination-dot {
-  width: 40px;
-  height: 4px;
-  background: rgba(0, 0, 0, 0.1);
-  border-radius: 2px;
+  width: 12px;
+  height: 12px;
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 50%;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .pagination-dot.active {
   background: var(--color-accent-blue);
-  width: 60px;
+  transform: scale(1.2);
 }
 
 /* ── Responsive ── */
 @media (max-width: 968px) {
-  .project-card {
-    grid-template-columns: 1fr;
+  .portfolio-slide-content {
+    flex-direction: column;
+  }
+  
+  .portfolio-graphics {
     padding: 2rem;
-    gap: 2rem;
+    min-height: 350px;
+  }
+  
+  .portfolio-main-img {
+    max-height: 300px;
+  }
+  
+  .portfolio-details {
+    padding: 3rem 2rem;
   }
   
   .projects-carousel-container {
     padding: 0 1rem;
   }
-  
+
   .carousel-btn {
     width: 44px;
     height: 44px;
-    background: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 0.9);
   }
 
   .carousel-btn.prev { left: -0.5rem; }
   .carousel-btn.next { right: -0.5rem; }
-  
-  .project-info h3 {
-    font-size: 2.2rem;
-  }
 }
-

@@ -29,27 +29,30 @@ const Header = () => {
           <ul>
             <li><Link to="/about" className="nav-link">ABOUT US</Link></li>
             <li><Link to="/services" className="nav-link">SERVICES</Link></li>
-            <li><Link to="/#methodology" className="nav-link">CASE STUDY &or;</Link></li>
+            <li><Link to="/#methodology" className="nav-link">CASE STUDY</Link></li>
             <li><Link to="/bridge" className="nav-link">BRIDGE <span style={{color: 'var(--color-accent-yellow)'}}>(SOON)</span></Link></li>
           </ul>
         </nav>
         
         <div className="cta-container desktop-only">
-          <a href="mailto:pm@dekodeglobal.com" className="btn-outline glow-btn" style={{ textDecoration: 'none', display: 'inline-block', border: '1px solid rgba(255,255,255,0.4)', borderRadius: '4px', padding: '0.5rem 1.5rem', color: '#fff' }}>
+          <Link to="/contact" className="btn-outline glow-btn" style={{ textDecoration: 'none', display: 'inline-block', border: '1px solid rgba(255,255,255,0.4)', borderRadius: '4px', padding: '0.5rem 1.5rem', color: '#fff' }}>
             CONTACT
-          </a>
+          </Link>
         </div>
 
-        {/* Mobile Menu Toggle Button */}
-        <button 
-          className={`mobile-menu-btn ${isMobileMenuOpen ? 'open' : ''}`}
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          aria-label="Toggle Navigation"
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
+        {/* Mobile Header Actions */}
+        <div className="mobile-actions">
+           <Link to="/contact" className="mobile-contact-btn">CONTACT</Link>
+           <button 
+             className={`mobile-menu-btn ${isMobileMenuOpen ? 'open' : ''}`}
+             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+             aria-label="Toggle Navigation"
+           >
+             <span></span>
+             <span></span>
+             <span></span>
+           </button>
+        </div>
       </div>
 
       {/* Mobile Navigation Overlay */}
@@ -61,9 +64,9 @@ const Header = () => {
           <li><Link to="/bridge" className="mobile-nav-link" onClick={closeMobileMenu}>Bridge</Link></li>
         </ul>
         <div className="mobile-nav-cta">
-          <a href="mailto:pm@dekodeglobal.com" className="btn-primary glow-btn w-full text-center block" style={{ textDecoration: 'none' }} onClick={closeMobileMenu}>
+          <Link to="/contact" className="btn-primary glow-btn w-full text-center block" style={{ textDecoration: 'none' }} onClick={closeMobileMenu}>
             Book Discovery Call
-          </a>
+          </Link>
         </div>
       </div>
     </header>

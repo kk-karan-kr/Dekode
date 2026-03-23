@@ -65,7 +65,7 @@ const Home = () => {
             We combine AI consultancy, solution development, infrastructure, and security to deliver real systems your team can adopt from day one.
           </p>
           <div className="hero-actions justify-center animate-fade-in mb-16" style={{ animationDelay: '0.4s' }}>
-            <a href="mailto:pm@dekodeglobal.com" className="btn-primary glow-btn" style={{ display: 'inline-block', textDecoration: 'none', position: 'relative', zIndex: 20 }}>Book a Discovery Call</a>
+            <a href="mailto:pm@dekodeglobal.com" className="btn-primary" style={{ display: 'inline-block', textDecoration: 'none', position: 'relative', zIndex: 20 }}>Book a Discovery Call</a>
             <Link to="/#services" className="btn-secondary" style={{ display: 'inline-block', textDecoration: 'none', position: 'relative', zIndex: 20 }}>EXPLORE CAPABILITIES</Link>
           </div>
 

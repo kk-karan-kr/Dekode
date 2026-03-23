@@ -15,9 +15,12 @@ import './components/HeroSection.css';
 import './components/PortfolioShowcase.css';
 import './components/ServicesGrid.css';
 
+import './pages/Contact.css';
+
 // Lazy-load the JS for each page — CSS is already loaded above
 const Home = lazy(() => import('./pages/Home'));
 const About = lazy(() => import('./pages/About'));
+const Contact = lazy(() => import('./pages/Contact'));
 const Bridge = lazy(() => import('./pages/Bridge'));
 const Services = lazy(() => import('./pages/Services'));
 const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
@@ -34,6 +37,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
+              <Route path="/contact" element={<Contact />} />
               <Route path="/bridge" element={<Bridge />} />
               <Route path="/services" element={<Services />} />
               <Route path="/privacy" element={<PrivacyPolicy />} />
