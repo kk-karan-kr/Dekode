@@ -57,7 +57,7 @@ const Home = () => {
           <div className="glow-orb orb-2" style={{ top: '20%', right: '-10%', bottom: 'auto' }}></div>
           <div className="glow-orb orb-3"></div>
         </div>
-        <div className="container hero-content text-center" style={{ paddingTop: '8rem' }}>
+        <div className="container hero-content text-center" style={{ paddingTop: '3rem' }}>
           <h1 className="hero-headline animate-fade-in mb-6" style={{ fontSize: '4.25rem', fontWeight: '700', lineHeight: '1.15', animationDelay: '0.2s', letterSpacing: '-0.02em', maxWidth: '900px', margin: '0 auto 1.5rem' }}>
             Future-proof your business and people with <span style={{color: 'var(--color-accent-yellow)'}}>secure AI</span> and <span style={{color: 'var(--color-accent-blue)'}}>scalable IT foundations</span>
           </h1>

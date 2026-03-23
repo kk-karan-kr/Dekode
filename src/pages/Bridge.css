@@ -74,7 +74,7 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  padding-top: 100px;
+  padding-top: 80px;
   overflow: hidden;
   background: radial-gradient(circle at center 60%, rgba(4, 51, 100, 0.1) 0%, rgba(4, 51, 100, 0) 60%);
 }

@@ -191,7 +191,7 @@ const Bridge = () => {
       <div className="particle-background" style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none', zIndex: 0 }}>
         <canvas ref={canvasRef} style={{ display: 'block' }}></canvas>
       </div>
-      <section className="bridge-hero relative w-full overflow-hidden" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', paddingTop: '80px', background: 'transparent' }}>
+      <section className="bridge-hero relative w-full overflow-hidden" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', paddingTop: '20px', background: 'transparent' }}>
         <div className="bridge-grid-overlay"></div>
 
 
@@ -339,7 +339,7 @@ const Bridge = () => {
       </section>
 
       {/* Globe Section */}
-      <section className="relative w-full overflow-hidden z-20" style={{ minHeight: '800px', display: 'flex', justifyContent: 'center', alignItems: 'center', background: 'transparent', padding: '4rem 0' }}>
+      <section className="relative w-full overflow-hidden z-20" style={{ minHeight: '600px', display: 'flex', justifyContent: 'center', alignItems: 'center', background: 'transparent', padding: '1rem 0' }}>
         <div style={{ width: '100%', maxWidth: '600px', height: '600px', position: 'relative', zIndex: 10 }}>
           {/* Left side Blue Flare */}
           <div style={{ position: 'absolute', top: '50%', left: '-30%', transform: 'translateY(-50%)', width: '500px', height: '800px', background: 'radial-gradient(ellipse at center, rgba(53, 118, 193, 0.75) 0%, rgba(53, 118, 193, 0) 70%)', filter: 'blur(50px)', zIndex: -1, pointerEvents: 'none' }}></div>

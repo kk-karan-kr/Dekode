@@ -1,6 +1,6 @@
 /* About.css */
 .about-page {
-  padding-top: 100px; /* Offset for solid header */
+  padding-top: 80px; /* Offset for solid header */
   background: var(--color-bg-dark);
 }
 
@@ -23,7 +23,7 @@
 
 /* Header Section */
 .about-header-section {
-  padding: 6rem 0;
+  padding: 3rem 0;
   text-align: center;
   background: radial-gradient(circle at top, rgba(53, 118, 193, 0.05), transparent 70%);
 }
