@@ -286,10 +286,15 @@
 .contact-list { display: flex; flex-direction: column; gap: 1.25rem; }
 .contact-item { display: flex; flex-direction: column; gap: 0.3rem; }
 .contact-label { font-size: 0.75rem; color: #6b7280; }
-.contact-link { font-weight: 700; text-decoration: none; font-size: 1.1rem; }
+.contact-link { font-weight: 700; text-decoration: none; font-size: 1.1rem; display: block; width: fit-content; transition: color 0.3s ease; }
 .blue-link { color: #2374c4; }
+.blue-link:hover { color: #1a5ca3; }
 .dark-link { color: #1f2937; }
+.dark-link:hover { color: #000; }
 .green-link { color: #15803d; display: flex; align-items: center; gap: 0.4rem; }
+.green-link:hover { color: #126631; }
+
+.phone-group { display: flex; flex-direction: column; gap: 0.5rem; }
 
 /* Small Phone Graphic */
 .small-phone { position: absolute; bottom: -20px; right: -20px; width: 150px; height: 120px; opacity: 0.9; z-index: 1; }
