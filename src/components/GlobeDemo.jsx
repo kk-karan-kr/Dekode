@@ -5,7 +5,7 @@ export function GlobeDemo() {
   const globeConfig = {
     pointSize: 4,
     globeColor: "#111118", // dark charcoal — visible but not black
-    showAtmosphere: true,
+    showAtmosphere: false, // Disabled to reduce rendering lag
     atmosphereColor: "#2a4a8a",
     atmosphereAltitude: 0.13,
     emissive: "#111118",
@@ -19,7 +19,7 @@ export function GlobeDemo() {
     arcTime: 2000,
     arcLength: 0.9,
     rings: 1,
-    maxRings: 3,
+    maxRings: 1, // Reduced to 1 for performance
     initialPosition: { lat: -5, lng: 105 },
     autoRotate: true,
     autoRotateSpeed: 0.5,
