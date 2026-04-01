@@ -4,18 +4,18 @@ import { World } from "./ui/Globe";
 export function GlobeDemo() {
   const globeConfig = {
     pointSize: 4,
-    globeColor: "#0a0a0f", // matches --color-bg-dark
+    globeColor: "#111118", // dark charcoal — visible but not black
     showAtmosphere: true,
-    atmosphereColor: "#3576C1",
-    atmosphereAltitude: 0.15,
-    emissive: "#2d2d5bff",
+    atmosphereColor: "#2a4a8a",
+    atmosphereAltitude: 0.13,
+    emissive: "#111118",
     emissiveIntensity: 0.1,
-    shininess: 0.9,
-    polygonColor: "rgba(255,255,255,0.7)",
-    ambientLight: "#38bdf8",
-    directionalLeftLight: "#dc0f0fff",
-    directionalTopLight: "#a41515ff",
-    pointLight: "#db1212ff",
+    shininess: 0.7,
+    polygonColor: "rgba(255,255,255,0.65)",
+    ambientLight: "#ffffff",
+    directionalLeftLight: "#ffffff",
+    directionalTopLight: "#ffffff",
+    pointLight: "#ffffff",
     arcTime: 2000,
     arcLength: 0.9,
     rings: 1,
@@ -25,7 +25,8 @@ export function GlobeDemo() {
     autoRotateSpeed: 0.5,
   };
 
-  const colors = ["#3576C1", "#FEB611", "#3576C1", "#FEB611"];
+  const YELLOW = "#FEB611"; // India & Australia
+  const RED    = "#e03030"; // all others
 
   // Coordinates:
   // Canada: 56.13, -106.34
@@ -34,16 +35,17 @@ export function GlobeDemo() {
   // India: 20.59, 78.96
   // UK: 55.37, -3.43
 
+  // Each location gets an explicit dot color
   const locations = [
-    { lat: 56.13, lng: -106.34 }, // Canada
-    { lat: 55.37, lng: -3.43 },   // UK
-    { lat: 23.42, lng: 53.84 },   // UAE
-    { lat: 20.59, lng: 78.96 },   // India
-    { lat: -25.27, lng: 133.77 }, // Australia
+    { lat: 56.13,  lng: -106.34, color: RED    }, // Canada
+    { lat: 55.37,  lng: -3.43,   color: RED    }, // UK
+    { lat: 23.42,  lng: 53.84,   color: RED    }, // UAE
+    { lat: 20.59,  lng: 78.96,   color: YELLOW }, // India
+    { lat: -25.27, lng: 133.77,  color: YELLOW }, // Australia
   ];
 
+  // Arcs: color is determined by the destination dot
   const arcs = [];
-  // Connect them in a chain
   for (let i = 0; i < locations.length - 1; i++) {
     arcs.push({
       order: i + 1,
@@ -52,7 +54,7 @@ export function GlobeDemo() {
       endLat: locations[i + 1].lat,
       endLng: locations[i + 1].lng,
       arcAlt: 0.3,
-      color: colors[i % colors.length],
+      color: locations[i + 1].color,
     });
   }
   // Connect Australia back to Canada
@@ -63,7 +65,7 @@ export function GlobeDemo() {
     endLat: locations[0].lat,
     endLng: locations[0].lng,
     arcAlt: 0.4,
-    color: colors[locations.length % colors.length],
+    color: locations[0].color,
   });
 
   return (

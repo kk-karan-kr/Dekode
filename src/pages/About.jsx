@@ -1,5 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import './About.css';
+import whoWeWorkWithImg from '../assets/who-we-work-with.jpg';
+import whereWeGoingImg from '../assets/where-we-going.jpg';
 
 const About = () => {
   const elementsRef = useRef([]);
@@ -110,23 +112,33 @@ const About = () => {
       {/* Who We Work With & Where We're Going */}
       <section className="about-vision-section" ref={addToRefs}>
         <div className="container">
-          <div className="vision-boxes">
+          <div className="vision-rows">
             
-            <div className="vision-box" ref={addToRefs}>
-              <h2 className="about-section-title">Who We Work With</h2>
-              <p>
-                We partner with small and medium businesses across education, healthcare, finance, accounting, legal, food and agriculture, and retail. Our clients share one thing in common: they want technology that solves real problems without creating new ones.
-              </p>
+            <div className="vision-row" ref={addToRefs}>
+              <div className="vision-text-side">
+                <h2 className="about-section-title">Who We Work With</h2>
+                <p>
+                  We partner with small and medium businesses across education, healthcare, finance, accounting, legal, food and agriculture, and retail. Our clients share one thing in common: they want technology that solves real problems without creating new ones.
+                </p>
+              </div>
+              <div className="vision-image-side">
+                <img src={whoWeWorkWithImg} alt="Diverse professionals working together" />
+              </div>
             </div>
             
-            <div className="vision-box" ref={addToRefs}>
-              <h2 className="about-section-title">Where We're Going</h2>
-              <p>
-                The world is shifting fast. AI is reshaping how businesses operate, compete, and serve their customers. There’s a lot of noise and a lot of fear, but also an extraordinary opportunity for businesses willing to participate rather than wait.
-              </p>
-              <p>
-                DEKODE is building toward becoming a trusted global technology partner for businesses navigating that shift. Our goal is simple: make digital transformation and AI adoption accessible, affordable, and genuinely useful for the people it’s meant to serve.
-              </p>
+            <div className="vision-row inverse-row" ref={addToRefs}>
+              <div className="vision-text-side">
+                <h2 className="about-section-title">Where We're Going</h2>
+                <p>
+                  The world is shifting fast. AI is reshaping how businesses operate, compete, and serve their customers. There’s a lot of noise and a lot of fear, but also an extraordinary opportunity for businesses willing to participate rather than wait.
+                </p>
+                <p>
+                  DEKODE is building toward becoming a trusted global technology partner for businesses navigating that shift. Our goal is simple: make digital transformation and AI adoption accessible, affordable, and genuinely useful for the people it’s meant to serve.
+                </p>
+              </div>
+              <div className="vision-image-side">
+                <img src={whereWeGoingImg} alt="Technology and futuristic vision" />
+              </div>
             </div>
 
           </div>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './PortfolioShowcase.css';
 
 // Import images and logos
@@ -12,6 +12,12 @@ import smartBrokerImg from '../assets/Smart-Broker.png';
 import smartBrokerLogo from '../assets/smartbroker-logo.png';
 import recycledImg from '../assets/Recycled.png';
 import recycledLogo from '../assets/recycled_logo.png';
+
+// Import client logos
+import bestonLogo from '../assets/8-beston-global-food-1.png';
+import stMaryLogo from '../assets/10-st_mary_of_the_cross_point_cook-1.png';
+import stellaMarisLogo from '../assets/Stella-Maris-point-cook-1.png';
+import ugnamiLogo from '../assets/ugnami-logo-1.png';
 
 const PortfolioShowcase = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -82,11 +88,22 @@ const PortfolioShowcase = () => {
     setCurrentIndex((prev) => (prev - 1 + projects.length) % projects.length);
   };
 
+  // Auto-scroll logic
+  useEffect(() => {
+    const timer = setInterval(() => {
+      nextSlide();
+    }, 4000); // Autoscroll every 4 seconds
+
+    return () => clearInterval(timer);
+  }, [currentIndex]); // Reset timer when index changes manually
+
+  const clientLogos = [stellaMarisLogo, ugnamiLogo, stMaryLogo, bestonLogo];
+
   return (
     <section id="portfolio" className="portfolio-section">
       <div className="container">
         <div className="section-header">
-          <h2 className="section-title">Projects</h2>
+          <h2 className="section-title">Trusted by teams who need <span className="highlight-blue">real-world delivery</span></h2>
           <p className="section-subtitle">A curated showcase of our technical delivery and product innovation.</p>
         </div>
 
@@ -140,6 +157,15 @@ const PortfolioShowcase = () => {
               className={`pagination-dot ${index === currentIndex ? 'active' : ''}`}
               onClick={() => setCurrentIndex(index)}
             />
+          ))}
+        </div>
+
+        {/* New Client Logos Section */}
+        <div className="client-logos-grid">
+          {clientLogos.map((logo, index) => (
+            <div key={index} className="client-logo-item">
+              <img src={logo} alt="Client Logo" className="client-logo-img" />
+            </div>
           ))}
         </div>
       </div>

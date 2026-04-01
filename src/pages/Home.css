@@ -3,8 +3,68 @@
   min-height: 90vh;
   display: flex;
   align-items: center;
-  padding-top: 80px;
+  padding-top: 100px;
+  padding-bottom: 2rem;
   overflow: hidden;
+}
+
+.hero-content {
+  padding-top: 3rem;
+  z-index: 10;
+  position: relative;
+}
+
+.hero-headline {
+  font-size: clamp(2.5rem, 8vw, 4.25rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  max-width: 900px;
+  margin: 0 auto 1.5rem;
+  animation-delay: 0.2s;
+}
+
+.highlight-yellow { 
+  color: var(--color-accent-yellow); 
+  text-shadow: 0 0 15px rgba(254, 182, 17, 0.4);
+  font-weight: 800;
+}
+.highlight-blue { 
+  color: var(--color-accent-blue); 
+  text-shadow: 0 0 15px rgba(53, 118, 193, 0.4);
+  font-weight: 800;
+}
+
+.hero-subheadline {
+  font-size: clamp(1rem, 3vw, 1.25rem);
+  color: #d1d5db; /* gray-300 */
+  margin: 0 auto 3rem;
+  max-width: 750px;
+  line-height: 1.6;
+  animation-delay: 0.3s;
+}
+
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  animation-delay: 0.4s;
+}
+
+.hero-actions a {
+  display: inline-block;
+  text-decoration: none;
+  position: relative;
+  z-index: 20;
+}
+
+@media (max-width: 640px) {
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0 1rem;
+  }
 }
 
 .mx-auto {
@@ -13,8 +73,8 @@
 }
 
 .py-20 {
-  padding-top: 5rem;
-  padding-bottom: 5rem;
+  padding-top: 3.5rem;
+  padding-bottom: 3.5rem;
 }
 
 .bg-dark-layer {
@@ -69,3 +129,128 @@
   animation: skeletonShimmer 2s infinite linear;
 }
 
+/* Principles Grid Layout */
+.principles-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  width: 100%;
+}
+
+@media (max-width: 1024px) {
+  .principles-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .principles-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}
+
+/* Principles Section Styling */
+.principle-card {
+  background: white;
+  border: 1px solid rgba(53, 118, 193, 0.1);
+  padding: 2.5rem 2rem;
+  border-radius: 1.5rem;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
+  z-index: 1;
+}
+
+.principle-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 1.5rem;
+  padding: 2px;
+  background: linear-gradient(135deg, var(--color-accent-blue), var(--color-accent-yellow));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.principle-card:hover::before {
+  opacity: 1;
+}
+
+.principle-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px -15px rgba(53, 118, 193, 0.15);
+}
+
+.principle-icon-wrapper {
+  width: 54px;
+  height: 54px;
+  background: white;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  position: relative;
+  border: 2px solid var(--color-accent-blue);
+  box-shadow: 0 0 15px rgba(53, 118, 193, 0.2);
+}
+
+.principle-svg {
+  width: 28px;
+  height: 28px;
+  color: var(--color-accent-blue);
+  filter: drop-shadow(0 0 5px rgba(53, 118, 193, 0.6));
+  animation: glowPulseBlue 3s infinite ease-in-out;
+}
+
+/* Every second card has yellow accents */
+.principle-card:nth-child(even) .principle-icon-wrapper {
+  border-color: var(--color-accent-yellow);
+  box-shadow: 0 0 15px rgba(254, 182, 17, 0.3);
+}
+
+.principle-card:nth-child(even) .principle-svg {
+  color: var(--color-accent-yellow);
+  filter: drop-shadow(0 0 5px rgba(254, 182, 17, 0.6));
+  animation: glowPulseYellow 3s infinite ease-in-out;
+}
+
+.principle-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #043364;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.01em;
+}
+
+.principle-desc {
+  color: #666;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+@keyframes glowPulseBlue {
+  0%, 100% { filter: drop-shadow(0 0 3px rgba(53, 118, 193, 0.4)); }
+  50% { filter: drop-shadow(0 0 10px rgba(53, 118, 193, 0.8)); }
+}
+
+@keyframes glowPulseYellow {
+  0%, 100% { filter: drop-shadow(0 0 3px rgba(254, 182, 17, 0.4)); }
+  50% { filter: drop-shadow(0 0 10px rgba(254, 182, 17, 0.8)); }
+}
+
+@media (max-width: 768px) {
+  .principle-card {
+    padding: 2rem 1.5rem;
+  }
+}

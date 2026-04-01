@@ -217,8 +217,8 @@
     height: 20px;
   }
 
-  .carousel-btn.prev { left: -0.25rem; }
-  .carousel-btn.next { right: -0.25rem; }
+  .carousel-btn.prev { left: 0.25rem; }
+  .carousel-btn.next { right: 0.25rem; }
 
   .carousel-pagination {
     margin-top: 2rem;
@@ -259,6 +259,81 @@
   }
   
   .carousel-btn {
-    display: none; /* Hide buttons on very small screens to rely on dots/drag */
+    display: flex; /* Ensure buttons show up on all screens */
+    width: 32px;
+    height: 32px;
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .carousel-btn svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .carousel-btn.prev { left: 0.5rem; }
+  .carousel-btn.next { right: 0.5rem; }
+
+  .portfolio-main-img {
+    max-height: 180px;
+  }
+}
+
+/* Client Logos Section */
+.client-logos-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+  margin-top: 6rem;
+  padding: 2rem 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.client-logo-item {
+  flex: 0 1 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.4s ease;
+  filter: none;
+  opacity: 1;
+}
+
+.client-logo-item:hover {
+  filter: none;
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.client-logo-img {
+  max-width: 180px;
+  max-height: 70px;
+  object-fit: contain;
+}
+
+@media (max-width: 768px) {
+  .client-logos-grid {
+    gap: 3rem;
+    margin-top: 4rem;
+  }
+
+  .client-logo-img {
+    max-width: 140px;
+    max-height: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .client-logos-grid {
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .client-logo-img {
+    max-width: 110px;
+    max-height: 40px;
   }
 }

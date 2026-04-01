@@ -6,51 +6,71 @@ const ServicesGrid = () => {
     {
       id: 1,
       title: 'AI Strategy & Consulting',
-      shortDesc: 'Turn AI uncertainty into a clear roadmap and ROI path.',
-      fullDesc: 'We help you define a prioritized list of use cases, assess AI readiness, and map practical opportunities.'
+      shortDesc: 'Turn AI uncertainty into a roadmap, prioritised use cases, and a clear ROI path.',
+      items: [
+        'AI strategy',
+        'Opportunity mapping',
+        'Responsible AI guidance'
+      ]
     },
     {
       id: 2,
       title: 'Custom AI Development',
-      shortDesc: 'Build AI solutions that actually fit your specific needs.',
-      fullDesc: 'From machine learning to generative AI, we build internal copilots and tailored knowledge systems.'
+      shortDesc: 'Build practical AI solutions that fit your needs, from machine learning to generative AI.',
+      items: [
+        'Bespoke AI development',
+        'ML development',
+        'Generative AI solutions'
+      ]
     },
     {
       id: 3,
-      title: 'Web & Mobile Dev',
-      shortDesc: 'Apps and portals people actually want to adopt.',
-      fullDesc: 'Full lifecycle development from prototype to production. We build web apps, iOS/Android apps, and UX design.'
+      title: 'Web & Mobile Development',
+      shortDesc: 'Build apps and portals people actually adopt, from prototype to production.',
+      items: [
+        'Web apps',
+        'iOS/Android apps',
+        'User experience (UX) design',
+        'Internal tools'
+      ]
     },
     {
       id: 4,
-      title: 'AI-Powered E-Commerce',
-      shortDesc: 'Modern commerce experiences that convert and scale.',
-      fullDesc: 'Leverage personalized product recommendations, intelligent search, and automated inventory.'
+      title: 'E-Commerce + AI Experiences',
+      shortDesc: 'Modern e-commerce builds and AI-powered shopping experiences that convert and scale.',
+      items: [
+        'AI-powered e-commerce development',
+        'Performance and UX optimisation'
+      ]
     },
     {
       id: 5,
-      title: 'Integrations & Automation',
-      shortDesc: 'Connect your stack and automate custom workflows.',
-      fullDesc: 'We reduce operational load through custom APIs, payment integrations, and deep business process automation.'
+      title: 'Integrations + Automation',
+      shortDesc: 'Connect your stack and automate workflows to reduce operational load.',
+      items: [
+        'Payment integrations',
+        'Chat/text/email integrations',
+        'Custom APIs',
+        'DevOps'
+      ]
     },
     {
       id: 6,
-      title: 'Cloud, IT & Security',
-      shortDesc: 'Secure, scalable foundations and structural hardening.',
-      fullDesc: 'End-to-end cloud migration (AWS, Azure, GCP), ongoing infrastructure management, and security reviews.'
+      title: 'Cloud, Managed IT + Security',
+      shortDesc: 'Secure, scalable foundations with ongoing management and hardening.',
+      items: [
+        'Cloud migration (AWS, Azure, GCP)',
+        'Infrastructure management',
+        'Security posture',
+        'Ongoing support'
+      ]
     }
   ];
 
   return (
     <section id="services" className="services-section">
       <div className="container">
-        <div className="section-header">
-          <h2 className="section-title">Core Capabilities</h2>
-          <p className="section-subtitle">
-            AI, product development, cloud, and security—delivered seamlessly by a single expert partner. No patchwork vendors. No handoff gaps.
-          </p>
-        </div>
-
+        {/* Header removed as requested; "Everything you need..." sits directly above this component in Home.jsx */}
         <div className="services-grid">
           {services.map((service) => (
             <div key={service.id} className="service-card-wrapper">
@@ -59,13 +79,19 @@ const ServicesGrid = () => {
                   <div className="card-title-box">
                     <div className="title-text">{service.title}</div>
                   </div>
-                  
+
                   <div className="card-body-box">
                     <p className="service-short-desc">{service.shortDesc}</p>
                   </div>
 
-                  <div className="card-footer-box">
-                    <p className="service-full-desc">{service.fullDesc}</p>
+                  <div className="card-footer-box" style={{ marginTop: '1rem' }}>
+                    <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+                      {service.items.map((item, index) => (
+                        <li key={index} style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                          <span style={{ color: 'var(--color-accent-blue)', fontSize: '1rem', fontWeight: 'bold' }}>→</span> {item}
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
               </div>

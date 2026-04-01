@@ -16,24 +16,38 @@ const Footer = () => {
   return (
     <footer id="contact" className="modern-footer">
       <div className="container footer-content">
-        <div className="footer-cta-box" style={{ background: 'rgba(255, 255, 255, 0.05)', border: '1px solid rgba(53, 118, 193, 0.3)', padding: '3rem', borderRadius: '16px', marginBottom: '4rem', textAlign: 'center' }}>
-          <h2 style={{ fontSize: '2.5rem', marginBottom: '1rem', background: 'linear-gradient(to right, var(--color-accent-blue), var(--color-accent-yellow))', WebkitBackgroundClip: 'text', color: 'transparent' }}>
-            Ready to turn an AI idea into a working product?
-          </h2>
-          <p style={{ color: 'rgba(255, 255, 255, 0.9)', fontSize: '1.1rem', maxWidth: '700px', margin: '0 auto 2rem' }}>
-            If you're exploring AI, modernising systems, improving user experience, or building something new, DEKODE can help. Start with a discovery call and we'll map the fastest path to a secure, usable outcome.
-          </p>
-          <a href="mailto:pm@dekodeglobal.com" className="btn-primary" style={{ display: 'inline-block', textDecoration: 'none', marginBottom: '2rem' }}>Book a Discovery Call</a>
+        <div className="footer-cta-container">
+          <div className="footer-cta-left">
+            <h2>
+              Ready to turn an<br />
+              AI idea into a<br />
+              <span className="highlight-yellow">working product?</span>
+            </h2>
+            <p>
+              If you’re exploring AI, modernising systems, improving user experience, 
+              or building something new, DEKODE can help. Start with a discovery call 
+              and we’ll map the fastest path to a secure, usable outcome.
+            </p>
+            <a href="mailto:contactus@dekodeglobal.com" className="btn-primary">
+              BOOK A DISCOVERY CALL <span style={{ marginLeft: '8px' }}>→</span>
+            </a>
+          </div>
           
-          <div style={{ display: 'flex', justifyContent: 'center', gap: '3rem', flexWrap: 'wrap' }}>
-            <div>
-              <h4 style={{ color: 'white', marginBottom: '0.5rem' }}>Email</h4>
-              <a href="mailto:pm@dekodeglobal.com" style={{ color: 'var(--color-accent-blue)', textDecoration: 'none' }}>pm@dekodeglobal.com</a>
+          <div className="footer-cta-right">
+            <div className="contact-block">
+              <h4>Email</h4>
+              <a href="mailto:contactus@dekodeglobal.com" className="contact-link">contactus@dekodeglobal.com</a>
             </div>
-            <div>
-              <h4 style={{ color: 'white', marginBottom: '0.5rem' }}>Phone</h4>
-              <p style={{ color: '#ffffff', margin: 0 }}>+61 421 196 363 (AU)</p>
-              <p style={{ color: '#ffffff', margin: 0 }}>+91 98115 10998 (IN)</p>
+            <div className="contact-block" style={{ marginTop: '2.5rem' }}>
+              <h4>Phone Number</h4>
+              <div className="phone-line">
+                <span className="flag" role="img" aria-label="Australia flag">🇦🇺</span>
+                <span className="phone-number">+61 421 196 363</span>
+              </div>
+              <div className="phone-line" style={{ marginTop: '0.8rem' }}>
+                <span className="flag" role="img" aria-label="India flag">🇮🇳</span>
+                <span className="phone-number">+91 88828 48489</span>
+              </div>
             </div>
           </div>
         </div>
