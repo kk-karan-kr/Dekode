@@ -16,6 +16,8 @@ import './components/PortfolioShowcase.css';
 import './components/ServicesGrid.css';
 
 import './pages/Contact.css';
+import './pages/FoodManufacture.css';
+import './pages/PrimarySchool.css';
 
 // Lazy-load the JS for each page — CSS is already loaded above
 const Home = lazy(() => import('./pages/Home'));
@@ -25,6 +27,8 @@ const Bridge = lazy(() => import('./pages/Bridge'));
 const Services = lazy(() => import('./pages/Services'));
 const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
 const TermsOfService = lazy(() => import('./pages/TermsOfService'));
+const FoodManufacture = lazy(() => import('./pages/FoodManufacture'));
+const PrimarySchool = lazy(() => import('./pages/PrimarySchool'));
 
 function App() {
   return (
@@ -42,6 +46,8 @@ function App() {
               <Route path="/services" element={<Services />} />
               <Route path="/privacy" element={<PrivacyPolicy />} />
               <Route path="/terms" element={<TermsOfService />} />
+              <Route path="/case-study/food-manufacture" element={<FoodManufacture />} />
+              <Route path="/case-study/primary-school" element={<PrimarySchool />} />
             </Routes>
           </Suspense>
         </main>

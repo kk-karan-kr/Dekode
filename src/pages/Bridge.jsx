@@ -127,70 +127,8 @@ const CyberPillarCard = ({ icon, title, desc, accent }) => {
 
 
 const Bridge = () => {
-  const canvasRef = useRef(null);
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    
-    const ctx = canvas.getContext('2d');
-    const particles = [];
-    const count = 50;
-    
-    const resize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    };
-    
-    window.addEventListener('resize', resize);
-    resize();
-    
-    for (let i = 0; i < count; i++) {
-      particles.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        size: Math.random() * 2 + 1,
-        speedX: (Math.random() - 0.5) * 1,
-        speedY: (Math.random() - 0.5) * 1,
-      });
-    }
-    
-    let animationFrameId;
-
-    const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      
-      // Update and draw particles
-      ctx.shadowBlur = 0;
-      particles.forEach(p => {
-        p.x += p.speedX;
-        p.y += p.speedY;
-        
-        if (p.x < 0 || p.x > canvas.width) p.speedX *= -1;
-        if (p.y < 0 || p.y > canvas.height) p.speedY *= -1;
-        
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(0, 245, 212, 0.6)';
-        ctx.fill();
-      });
-      
-      animationFrameId = requestAnimationFrame(animate);
-    };
-    
-    animate();
-    
-    return () => {
-      window.removeEventListener('resize', resize);
-      cancelAnimationFrame(animationFrameId);
-    };
-  }, []);
-
   return (
     <div className="page-container bridge-page relative">
-      <div className="particle-background" style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none', zIndex: 0 }}>
-        <canvas ref={canvasRef} style={{ display: 'block' }}></canvas>
-      </div>
       <section className="bridge-hero relative w-full overflow-hidden" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', paddingTop: '20px', background: 'linear-gradient(160deg, #0d2040 0%, #0a192f 50%, #061120 100%)' }}>
         <div className="bridge-grid-overlay"></div>
 
@@ -330,23 +268,17 @@ const Bridge = () => {
             </form>
             <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '0.85rem', marginTop: '1rem', fontWeight: 500, letterSpacing: '0.03em' }}>Be the first to know when BRIDGE launches. No spam, ever.</p>
           </div>
-          <div className="building-silhouettes" aria-hidden="true">
-            <div className="building b1"></div>
-            <div className="building b2"></div>
-            <div className="building b3"></div>
-            <div className="building b4"></div>
-            <div className="building b5"></div>
-          </div>
 
         </div>
 
       </section>
 
-      <section className="py-14 relative z-20 bg-dark-layer">
+      <section className="bridge-section-padding relative z-20 bg-dark-layer">
         <div className="container">
-          <div className="text-center mb-10">
+          <div className="text-center" style={{ marginBottom: '3.5rem' }}>
+            <p className="bridge-section-label" style={{ color: '#3576C1', opacity: 1, marginBottom: '1.25rem' }}>ABOUT THE INITIATIVE</p>
             <h2 className="section-title">What is BRIDGE</h2>
-            <p className="section-subtitle">A platform built for two-way technological exchange</p>
+            <p className="section-subtitle" style={{ fontSize: '1.1rem', color: '#556070', maxWidth: '600px', margin: '0 auto' }}>A platform built for two-way technological exchange</p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
@@ -369,9 +301,9 @@ const Bridge = () => {
         </div>
       </section>
 
-      <section className="py-16 relative z-20" style={{ background: '#f8fafc' }}>
+      <section className="bridge-section-padding relative z-20" style={{ background: '#f8fafc' }}>
         <div className="container">
-          <div className="text-center mb-14">
+          <div className="text-center" style={{ marginBottom: '3.5rem' }}>
             <p className="bridge-section-label" style={{ color: '#3576C1', opacity: 1 }}>WHAT BRIDGE ENABLES</p>
             <h2 className="bridge-section-heading" style={{ color: '#0d1a2d', fontSize: 'clamp(2.5rem, 5vw, 3.5rem)' }}>
               Six pillars of <span style={{ color: '#3576C1' }}>cross-border collaboration</span>
@@ -382,10 +314,10 @@ const Bridge = () => {
             {[
               { icon: '🤝', title: 'Business Partnerships', desc: 'Joint ventures & strategic alliances between AU/IN technology businesses.', accent: 'blue' },
               { icon: '👥', title: 'Resourcing & Staffing', desc: 'Verified tech professionals matched to real cross-border project requirements.', accent: 'purple' },
-              { icon: '💻', title: 'Product Development', desc: 'Co-build digital products leveraging Australian insight & Indian engineering depth.', accent: 'blue' },
+              { icon: '🚀', title: 'Product Development', desc: 'Co-build digital products leveraging Australian insight & Indian engineering depth.', accent: 'blue' },
               { icon: '🎓', title: 'Cross-Skilling & Training', desc: 'Upskill teams across borders — embedding emerging tech skills directly in your workforce.', accent: 'purple' },
               { icon: '🔬', title: 'R&D Collaboration', desc: 'Joint innovation programs accelerating the development of new solutions & IP.', accent: 'blue' },
-              { icon: '🌐', title: 'Talent Exchange', desc: 'Secondments & long-term embedded placements that build genuine cross-cultural capability.', accent: 'purple' },
+              { icon: '✈️', title: 'Talent Exchange', desc: 'Secondments & long-term embedded placements that build genuine cross-cultural capability.', accent: 'purple' },
             ].map((pillar, i) => (
               <CyberPillarCard key={i} {...pillar} />
             ))}
@@ -453,14 +385,14 @@ const Bridge = () => {
       </section>
 
       {/* Globe Section */}
-      <section className="relative w-full overflow-hidden z-20" style={{ background: 'linear-gradient(160deg, #0d2040 0%, #0a192f 60%, #061120 100%)', paddingBottom: '4rem' }}>
-        <div className="container" style={{ paddingTop: '4rem', textAlign: 'center' }}>
+      <section className="bridge-section-padding relative w-full overflow-hidden z-20" style={{ background: 'linear-gradient(160deg, #0d2040 0%, #0a192f 60%, #061120 100%)' }}>
+        <div className="container" style={{ textAlign: 'center' }}>
           <p className="bridge-section-label">WHERE WE OPERATE</p>
           <h2 className="bridge-section-heading">Where <span style={{ color: 'var(--color-accent-yellow)' }}>BRIDGE</span> operates</h2>
           <p className="bridge-section-sub">Starting with two of the world's most complementary technology ecosystems. Expanding from there.</p>
         </div>
         <div style={{ display: 'flex', justifyContent: 'center', position: 'relative' }}>
-          <div style={{ width: '100%', maxWidth: '600px', height: '600px', position: 'relative', zIndex: 10 }}>
+          <div style={{ width: '100%', maxWidth: '600px', height: 'clamp(350px, 100vw, 600px)', position: 'relative', zIndex: 10 }}>
             {/* Left side Blue Flare */}
             <div style={{ position: 'absolute', top: '50%', left: '-30%', transform: 'translateY(-50%)', width: '500px', height: '800px', background: 'radial-gradient(ellipse at center, rgba(53, 118, 193, 0.75) 0%, rgba(53, 118, 193, 0) 70%)', filter: 'blur(50px)', zIndex: -1, pointerEvents: 'none' }}></div>
             {/* Right side Yellow Flare */}

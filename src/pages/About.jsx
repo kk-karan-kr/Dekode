@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import './About.css';
 import whoWeWorkWithImg from '../assets/who-we-work-with.jpg';
 import whereWeGoingImg from '../assets/where-we-going.jpg';
+import whyWeExistImg from '../assets/90449.jpg';
 
 const About = () => {
   const elementsRef = useRef([]);
@@ -67,7 +68,8 @@ const About = () => {
               </p>
             </div>
             
-            <div className="about-image-standin">
+            <div className="about-image-container">
+              <img src={whyWeExistImg} alt="DEKODE's mission" className="about-embedded-image" />
               <div className="glow-shape blue-shape"></div>
               <div className="glow-shape yellow-shape"></div>
             </div>

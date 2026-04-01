@@ -5,6 +5,7 @@ import './Header.css';
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMobileCaseStudyOpen, setIsMobileCaseStudyOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,6 +17,7 @@ const Header = () => {
 
   const closeMobileMenu = () => {
     setIsMobileMenuOpen(false);
+    setIsMobileCaseStudyOpen(false);
   };
 
   return (
@@ -29,7 +31,13 @@ const Header = () => {
           <ul>
             <li><Link to="/about" className="nav-link">ABOUT US</Link></li>
             <li><Link to="/services" className="nav-link">SERVICES</Link></li>
-            <li><Link to="/#methodology" className="nav-link">CASE STUDY</Link></li>
+            <li className="dropdown">
+              <span className="nav-link dropdown-toggle">CASE STUDIES <span className="dropdown-arrow">▼</span></span>
+              <ul className="dropdown-menu">
+                <li><Link to="/case-study/food-manufacture" className="dropdown-item">Food Manufacturing Company</Link></li>
+                <li><Link to="/case-study/primary-school" className="dropdown-item">Primary School</Link></li>
+              </ul>
+            </li>
             <li><Link to="/bridge" className="nav-link">BRIDGE <span style={{color: 'var(--color-accent-yellow)'}}>(SOON)</span></Link></li>
           </ul>
         </nav>
@@ -60,13 +68,24 @@ const Header = () => {
         <ul>
           <li><Link to="/about" className="mobile-nav-link" onClick={closeMobileMenu}>About Us</Link></li>
           <li><Link to="/services" className="mobile-nav-link" onClick={closeMobileMenu}>SERVICES</Link></li>
-          <li><Link to="/#methodology" className="mobile-nav-link" onClick={closeMobileMenu}>Methodology</Link></li>
+          <li className={`mobile-dropdown-group ${isMobileCaseStudyOpen ? 'open' : ''}`}>
+            <span 
+              className="mobile-nav-link mobile-dropdown-toggle" 
+              onClick={() => setIsMobileCaseStudyOpen(!isMobileCaseStudyOpen)}
+            >
+              Case Studies <span className="mobile-dropdown-arrow">{isMobileCaseStudyOpen ? '▲' : '▼'}</span>
+            </span>
+            <div className={`mobile-dropdown-menu ${isMobileCaseStudyOpen ? 'expanded' : ''}`}>
+              <Link to="/case-study/food-manufacture" className="mobile-dropdown-item" onClick={closeMobileMenu}>Food Manufacturing Company</Link>
+              <Link to="/case-study/primary-school" className="mobile-dropdown-item" onClick={closeMobileMenu}>Primary School</Link>
+            </div>
+          </li>
           <li><Link to="/bridge" className="mobile-nav-link" onClick={closeMobileMenu}>Bridge</Link></li>
         </ul>
         <div className="mobile-nav-cta">
-          <Link to="/contact" className="btn-primary glow-btn w-full text-center block" style={{ textDecoration: 'none' }} onClick={closeMobileMenu}>
+          <a href="mailto:contactus@dekodeglobal.com" className="btn-primary glow-btn w-full text-center block" style={{ textDecoration: 'none' }} onClick={closeMobileMenu}>
             Book Discovery Call
-          </Link>
+          </a>
         </div>
       </div>
     </header>

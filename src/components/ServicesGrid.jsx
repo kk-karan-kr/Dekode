@@ -1,10 +1,11 @@
-import React from 'react';
+import { Link } from 'react-router-dom';
 import './ServicesGrid.css';
 
 const ServicesGrid = () => {
   const services = [
     {
       id: 1,
+      hashLink: '/services#ai-strategy',
       title: 'AI Strategy & Consulting',
       shortDesc: 'Turn AI uncertainty into a roadmap, prioritised use cases, and a clear ROI path.',
       items: [
@@ -15,6 +16,7 @@ const ServicesGrid = () => {
     },
     {
       id: 2,
+      hashLink: '/services#custom-ai',
       title: 'Custom AI Development',
       shortDesc: 'Build practical AI solutions that fit your needs, from machine learning to generative AI.',
       items: [
@@ -25,6 +27,7 @@ const ServicesGrid = () => {
     },
     {
       id: 3,
+      hashLink: '/services#web-mobile',
       title: 'Web & Mobile Development',
       shortDesc: 'Build apps and portals people actually adopt, from prototype to production.',
       items: [
@@ -36,6 +39,7 @@ const ServicesGrid = () => {
     },
     {
       id: 4,
+      hashLink: '/services#ecommerce',
       title: 'E-Commerce + AI Experiences',
       shortDesc: 'Modern e-commerce builds and AI-powered shopping experiences that convert and scale.',
       items: [
@@ -45,6 +49,7 @@ const ServicesGrid = () => {
     },
     {
       id: 5,
+      hashLink: '/services#integrations',
       title: 'Integrations + Automation',
       shortDesc: 'Connect your stack and automate workflows to reduce operational load.',
       items: [
@@ -56,6 +61,7 @@ const ServicesGrid = () => {
     },
     {
       id: 6,
+      hashLink: '/services#cloud-it',
       title: 'Cloud, Managed IT + Security',
       shortDesc: 'Secure, scalable foundations with ongoing management and hardening.',
       items: [
@@ -73,7 +79,7 @@ const ServicesGrid = () => {
         {/* Header removed as requested; "Everything you need..." sits directly above this component in Home.jsx */}
         <div className="services-grid">
           {services.map((service) => (
-            <div key={service.id} className="service-card-wrapper">
+            <Link to={service.hashLink} key={service.id} className="service-card-wrapper">
               <div className="card-container">
                 <div className="card-content">
                   <div className="card-title-box">
@@ -88,14 +94,14 @@ const ServicesGrid = () => {
                     <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
                       {service.items.map((item, index) => (
                         <li key={index} style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                          <span style={{ color: 'var(--color-accent-blue)', fontSize: '1rem', fontWeight: 'bold' }}>→</span> {item}
+                          <span style={{ color: '#3576C1', fontSize: '1rem', fontWeight: 'bold' }}>→</span> {item}
                         </li>
                       ))}
                     </ul>
                   </div>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

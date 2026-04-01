@@ -48,7 +48,7 @@ const Services = () => {
       <section className="services-details-section">
         <div className="container">
           
-          <div className="service-detail-card" ref={addToRefs}>
+          <div id="ai-strategy" className="service-detail-card" ref={addToRefs}>
             <h2 className="service-title">AI Strategy & Consulting</h2>
             <p className="service-lead">
               Most businesses know AI matters. Fewer know where to start. We help you cut through the noise, identify the use cases that will actually move the needle, and build a roadmap grounded in your real data, workflows, and goals. Not hype.
@@ -71,7 +71,7 @@ const Services = () => {
             </div>
           </div>
 
-          <div className="service-detail-card" ref={addToRefs}>
+          <div id="custom-ai" className="service-detail-card" ref={addToRefs}>
             <h2 className="service-title">Custom AI Development</h2>
             <p className="service-lead">
               Build AI that fits your business. Not the other way around. Off-the-shelf AI rarely solves the specific problems your team faces every day. We design and develop custom AI solutions, from machine learning models to generative AI features, that plug directly into your operations and deliver measurable results.
@@ -94,7 +94,7 @@ const Services = () => {
             </div>
           </div>
 
-          <div className="service-detail-card" ref={addToRefs}>
+          <div id="web-mobile" className="service-detail-card" ref={addToRefs}>
             <h2 className="service-title">Web & Mobile Development</h2>
             <p className="service-lead">
               Build apps and interfaces that people actually want to use. A powerful system means nothing if your team can’t navigate it. We design and develop web apps, mobile apps, dashboards, and internal tools with user experience at the centre, so adoption happens naturally, not by force.
@@ -117,7 +117,7 @@ const Services = () => {
             </div>
           </div>
 
-          <div className="service-detail-card" ref={addToRefs}>
+          <div id="ecommerce" className="service-detail-card" ref={addToRefs}>
             <h2 className="service-title">AI-Powered E-Commerce Development</h2>
             <p className="service-lead">
               Smarter shopping experiences that convert and scale. E-commerce is no longer just a storefront. It’s a system of recommendations, personalisation, search intelligence, and automation. We build e-commerce platforms with AI woven in from the ground up, so your customers get better experiences and your operations run leaner.
@@ -140,7 +140,7 @@ const Services = () => {
             </div>
           </div>
 
-          <div className="service-detail-card" ref={addToRefs}>
+          <div id="integrations" className="service-detail-card" ref={addToRefs}>
             <h2 className="service-title">Integrations & Automation</h2>
             <p className="service-lead">
               Connect your tools. Automate the repetitive work. Free your team to focus. Most businesses run on a patchwork of systems that don’t talk to each other. We connect your stack, build custom integrations, and automate the manual processes that slow your team down, so information flows cleanly and work gets done faster.
@@ -163,7 +163,7 @@ const Services = () => {
             </div>
           </div>
 
-          <div className="service-detail-card" ref={addToRefs}>
+          <div id="cloud-it" className="service-detail-card" ref={addToRefs}>
             <h2 className="service-title">Cloud, Managed IT & Security</h2>
             <p className="service-lead">
               Secure, scalable foundations, with someone watching the systems so you don’t have to. Everything we build runs on infrastructure that’s designed for reliability, cost efficiency, and long-term maintainability. We handle cloud strategy, migration, day-to-day IT management, and security hardening as one connected service. Not separate line items from separate teams.
