@@ -62,18 +62,19 @@ const FoodManufacture = () => {
           <h2 className="fm-gradient-title"><span className="title-yellow">How</span> DEKODE Helped</h2>
           <p className="fm-centered-text">Our process to work with client ensures that the client's needs are kept front and centre. We work with the client to understand their needs, design the solution with client feedback, develop the solution with regular client check-ins, and finally, deploy the solution.</p>
         </div>
-        
+
         {/* Recreating the Client Driven Solutions image steps */}
         <div className="container fm-timeline">
           <div className="fm-timeline-step">
             <div className="fm-step-icon" style={{ borderColor: '#3a7ca5' }}>
               <span className="fm-icon-inner bg-blue">01</span>
             </div>
+            <br />
             <h4>Understand</h4>
             <p>Work with client to understand their needs and pain points</p>
           </div>
           <div className="fm-timeline-connector blue-teal"></div>
-          
+
           <div className="fm-timeline-step">
             <div className="fm-step-icon" style={{ borderColor: '#6abf98' }}>
               <span className="fm-icon-inner bg-teal">02</span>
@@ -82,7 +83,7 @@ const FoodManufacture = () => {
             <p>Design the solution with feedback from the client</p>
           </div>
           <div className="fm-timeline-connector teal-green"></div>
-          
+
           <div className="fm-timeline-step">
             <div className="fm-step-icon" style={{ borderColor: '#b6d763' }}>
               <span className="fm-icon-inner bg-green">03</span>
@@ -91,13 +92,14 @@ const FoodManufacture = () => {
             <p>Develop solution and incorporate regular feedback</p>
           </div>
           <div className="fm-timeline-connector green-dark"></div>
-          
+
           <div className="fm-timeline-step">
             <div className="fm-step-icon" style={{ borderColor: '#5da589' }}>
               <span className="fm-icon-inner bg-dark-teal">04</span>
             </div>
             <h4>Deploy</h4>
             <p>Deploy the solution and provide support</p>
+            <br />
           </div>
         </div>
 

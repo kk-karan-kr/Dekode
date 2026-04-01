@@ -19,7 +19,7 @@
   background-size: cover;
   background-position: center;
   /* Filter to keep it blue/white/yellow using blend mode and opacity */
-  mix-blend-mode: luminosity; 
+  mix-blend-mode: luminosity;
   opacity: 0.5;
   z-index: 0;
 }
@@ -69,7 +69,8 @@
 }
 
 .fm-light-theme strong {
-  color: #043364 !important; /* Brand navy for better readability */
+  color: #043364 !important;
+  /* Brand navy for better readability */
 }
 
 .fm-light-theme .fm-centered-text {
@@ -79,7 +80,8 @@
 /* Overview Section - New Layout */
 .fm-overview-section {
   padding: 5rem 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05); /* Lighter border for light theme */
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  /* Lighter border for light theme */
 }
 
 .fm-overview-split {
@@ -164,7 +166,8 @@
 }
 
 /* Sections */
-.fm-details-section, .fm-outcomes-section {
+.fm-details-section,
+.fm-outcomes-section {
   padding: 6rem 0;
 }
 
@@ -258,14 +261,14 @@
 }
 
 /* Client Driven Solutions Timeline Process */
-.fm-timeline {
+.container.fm-timeline {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   position: relative;
-  margin-bottom: 5rem;
-  background: #fff;
-  padding: 4rem 2rem;
+  margin-bottom: 6rem;
+  background: transparent;
+  padding: 2rem 0; /* Reduced padding since there's no white box */
   border-radius: 20px;
 }
 
@@ -289,8 +292,8 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 1.5rem;
-  background: white;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  background: transparent;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
 
 .fm-icon-inner {
@@ -306,10 +309,21 @@
   color: white;
 }
 
-.bg-blue { background: #3a7ca5; }
-.bg-teal { background: #6abf98; }
-.bg-green { background: #b6d763; }
-.bg-dark-teal { background: #5da589; }
+.bg-blue {
+  background: #3a7ca5;
+}
+
+.bg-teal {
+  background: #6abf98;
+}
+
+.bg-green {
+  background: #b6d763;
+}
+
+.bg-dark-teal {
+  background: #5da589;
+}
 
 .fm-timeline-step h4 {
   color: #333;
@@ -347,7 +361,7 @@
   padding: 2.5rem;
   border-radius: 0 12px 12px 0;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
   border-top: 1px solid #eee;
   border-right: 1px solid #eee;
   border-bottom: 1px solid #eee;
@@ -355,7 +369,7 @@
 
 .fm-step-detail-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .fm-step-detail-card h3 {
@@ -375,21 +389,29 @@
   .fm-hero-title {
     font-size: 3rem;
   }
+
   .fm-split {
     flex-direction: column;
   }
-  .fm-timeline {
+
+  .container.fm-timeline {
     flex-direction: column;
     align-items: center;
-    gap: 3rem;
+    gap: 4rem;
+    padding: 4rem 1.5rem;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
   }
+
   .fm-timeline-connector {
     display: none;
   }
+
   .fm-step-icon {
     width: 100px;
     height: 100px;
   }
+
   .fm-icon-inner {
     width: 70px;
     height: 70px;
