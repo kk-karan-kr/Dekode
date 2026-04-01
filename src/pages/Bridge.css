@@ -869,3 +869,4 @@
   animation: tickPulse 1s ease-in-out infinite;
 }
 
+.bridge-page { overflow-x: hidden; width: 100%; max-width: 100vw; }
