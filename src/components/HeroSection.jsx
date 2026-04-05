@@ -28,7 +28,7 @@ const HeroSection = () => {
       </div>
 
       <div className="container hero-content" style={{ alignItems: 'flex-start', textAlign: 'left' }}>
-        <div style={{ maxWidth: '800px', width: '100%', marginBottom: '4rem', zIndex: 10 }}>
+        <div style={{ maxWidth: '800px', width: '100%', marginBottom: '1.6rem', zIndex: 10 }}>
           <h1 className={`hero-headline ${textStage >= 1 ? 'visible' : ''}`} style={{ color: '#ffffff' }}>
             Future-proof your business and people with secure AI and <span style={{color: 'var(--color-accent-yellow)'}}>scalable IT foundations</span>
           </h1>

@@ -1,44 +1,6 @@
 import React, { useEffect, useRef, useCallback, useState, Suspense, lazy } from 'react';
 import './Bridge.css';
-
-const GlobeDemo = lazy(() => import('../components/GlobeDemo').then(m => ({ default: m.GlobeDemo })));
-
-const GlobeWrapper = () => {
-  const ref = useRef(null);
-  const [shouldLoad, setShouldLoad] = useState(false);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setShouldLoad(true);
-          observer.disconnect();
-        }
-      },
-      { rootMargin: '300px' }
-    );
-
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
-
-  return (
-    <div ref={ref} style={{ width: '100%', height: '100%', position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-      {shouldLoad ? (
-        <Suspense fallback={<div className="globe-skeleton" style={{ width: '100%', height: '100%', borderRadius: '50%', background: 'rgba(53, 118, 193, 0.1)', animation: 'ringPulse 2s infinite' }} />}>
-          <div style={{ width: '100%', height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-            <GlobeDemo />
-          </div>
-        </Suspense>
-      ) : (
-        <div className="globe-skeleton" />
-      )}
-    </div>
-  );
-};
+import { WorldMap } from '../components/ui/world-map';
 
 /* ── Cyber Pillar Card (adapted from uiverse.io / 00Kubi) ── */
 const CyberPillarCard = ({ icon, title, desc, accent }) => {
@@ -138,17 +100,17 @@ const Bridge = () => {
             <span className="blink-dot"></span>
             Coming Soon — Register Your Interest
           </div>
-          <div className="glitch-container mb-6" style={{ position: 'relative', zIndex: 10, color: 'var(--color-accent-yellow)' }}>
+          <div className="glitch-container" style={{ position: 'relative', zIndex: 10, color: 'var(--color-accent-yellow)' }}>
             BRIDGE
             <span aria-hidden="true">BRIDGE</span>
             <span aria-hidden="true">BRIDGE</span>
           </div>
-          <p className="hero-subheadline visible mx-auto" style={{ margin: '0 auto 3rem', position: 'relative', zIndex: 10, color: 'rgba(255,255,255,0.85)', fontSize: '1.1rem' }}>
+          <p className="hero-subheadline visible mx-auto" style={{ position: 'relative', zIndex: 10 }}>
             A new initiative connecting Australian and Indian businesses through technology, talent, and strategic partnership — to build, scale, and grow together.
           </p>
 
           {/* ── Cyber Electric AU — BRIDGE — IN ── */}
-          <div className="w-full max-w-4xl mx-auto mt-14 mb-20 relative z-10 select-none bridge-connection-graphic">
+          <div className="w-full mx-auto mt-12 mb-16 relative z-10 select-none bridge-connection-graphic">
             {/* Background Flares for Identity Section */}
             <div style={{ position: 'absolute', top: '50%', left: '0', transform: 'translate(-50%, -50%)', width: '300px', height: '300px', background: 'radial-gradient(circle, rgba(53, 118, 193, 0.3) 0%, transparent 70%)', filter: 'blur(40px)', zIndex: -1, pointerEvents: 'none' }}></div>
             <div style={{ position: 'absolute', top: '50%', right: '0', transform: 'translate(50%, -50%)', width: '300px', height: '300px', background: 'radial-gradient(circle, rgba(254, 182, 17, 0.2) 0%, transparent 70%)', filter: 'blur(40px)', zIndex: -1, pointerEvents: 'none' }}></div>
@@ -168,13 +130,13 @@ const Bridge = () => {
                   fontWeight: 800, 
                   fontSize: '0.75rem', 
                   letterSpacing: '0.35em', 
-                  marginTop: '12px', 
+                  marginTop: '5px', 
                   color: 'rgba(255, 255, 255, 0.6)'
                 }}>AUSTRALIA</span>
               </div>
 
               {/* Left line */}
-              <div style={{ position: 'relative', flex: 1, height: '2px', minWidth: '60px' }}>
+              <div style={{ position: 'relative', flex: 2, height: '2px', minWidth: '160px' }}>
                 <div style={{ position: 'absolute', inset: 0, borderRadius: '2px', background: 'linear-gradient(90deg, rgba(255,255,255,0.1), rgba(254,182,17,0.2))' }}></div>
                 <div style={{
                   position: 'absolute', inset: 0, borderRadius: '2px',
@@ -208,7 +170,7 @@ const Bridge = () => {
                   fontSize: '0.6rem',
                   fontWeight: 900,
                   letterSpacing: '0.55em',
-                  marginTop: '10px',
+                  marginTop: '4px',
                   textShadow: '0 0 10px #FEB611',
                   animation: 'textGlow 2s ease-in-out infinite',
                   textTransform: 'uppercase',
@@ -216,7 +178,7 @@ const Bridge = () => {
               </div>
 
               {/* Right line */}
-              <div style={{ position: 'relative', flex: 1, height: '2px', minWidth: '60px' }}>
+              <div style={{ position: 'relative', flex: 2, height: '2px', minWidth: '160px' }}>
                 <div style={{ position: 'absolute', inset: 0, borderRadius: '2px', background: 'linear-gradient(90deg, rgba(254,182,17,0.2), rgba(255,255,255,0.1))' }}></div>
                 <div style={{
                   position: 'absolute', inset: 0, borderRadius: '2px',
@@ -247,7 +209,7 @@ const Bridge = () => {
                   fontWeight: 800, 
                   fontSize: '0.75rem', 
                   letterSpacing: '0.35em', 
-                  marginTop: '12px', 
+                  marginTop: '5px', 
                   color: 'rgba(255, 255, 255, 0.6)'
                 }}>INDIA</span>
               </div>
@@ -256,17 +218,19 @@ const Bridge = () => {
           </div>
 
 
-          <div className="max-w-xl mx-auto w-full relative z-30">
-            <form className="bridge-stacked-form" onSubmit={(e) => e.preventDefault()}>
-              <input 
-                type="email" 
-                placeholder="Enter your email address" 
-                className="bridge-email-input"
-                required
-              />
-              <button type="submit" className="bridge-notify-btn">Notify Me</button>
+          <div className="max-w-2xl mx-auto w-full relative z-30">
+            <form className="bridge-form-new" onSubmit={(e) => e.preventDefault()}>
+              <div className="bridge-input-wrapper">
+                <input 
+                  type="email" 
+                  placeholder="Enter your email address" 
+                  className="bridge-email-input-new"
+                  required
+                />
+                <button type="submit" className="bridge-notify-btn-new">Notify Me</button>
+              </div>
             </form>
-            <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '0.85rem', marginTop: '1rem', fontWeight: 500, letterSpacing: '0.03em' }}>Be the first to know when BRIDGE launches. No spam, ever.</p>
+            <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '0.85rem', marginTop: '1.2rem', fontWeight: 500, letterSpacing: '0.03em' }}>Be the first to know when BRIDGE launches. No spam, ever.</p>
           </div>
 
         </div>
@@ -275,8 +239,8 @@ const Bridge = () => {
 
       <section className="bridge-section-padding relative z-20 bg-dark-layer">
         <div className="container">
-          <div className="text-center" style={{ marginBottom: '3.5rem' }}>
-            <p className="bridge-section-label" style={{ color: '#3576C1', opacity: 1, marginBottom: '1.25rem' }}>ABOUT THE INITIATIVE</p>
+          <div className="text-center" style={{ marginBottom: '1.4rem' }}>
+            <p className="bridge-section-label" style={{ color: '#3576C1', opacity: 1, marginBottom: '0.5rem' }}>ABOUT THE INITIATIVE</p>
             <h2 className="section-title">What is BRIDGE</h2>
             <p className="section-subtitle" style={{ fontSize: '1.1rem', color: '#556070', maxWidth: '600px', margin: '0 auto' }}>A platform built for two-way technological exchange</p>
           </div>
@@ -303,7 +267,7 @@ const Bridge = () => {
 
       <section className="bridge-section-padding relative z-20" style={{ background: '#f8fafc' }}>
         <div className="container">
-          <div className="text-center" style={{ marginBottom: '3.5rem' }}>
+          <div className="text-center" style={{ marginBottom: '1.4rem' }}>
             <p className="bridge-section-label" style={{ color: '#3576C1', opacity: 1 }}>WHAT BRIDGE ENABLES</p>
             <h2 className="bridge-section-heading" style={{ color: '#0d1a2d', fontSize: 'clamp(2.5rem, 5vw, 3.5rem)' }}>
               Six pillars of <span style={{ color: '#3576C1' }}>cross-border collaboration</span>
@@ -384,21 +348,54 @@ const Bridge = () => {
         </div>
       </section>
 
-      {/* Globe Section */}
-      <section className="bridge-section-padding relative w-full overflow-hidden z-20" style={{ background: 'linear-gradient(160deg, #0d2040 0%, #0a192f 60%, #061120 100%)' }}>
+      {/* Operating Section with Map */}
+      <section className="bridge-section-padding relative w-full overflow-hidden z-20" style={{ background: 'linear-gradient(160deg, #0d2040 0%, #0a192f 60%, #061120 100%)', paddingBottom: '7rem' }}>
         <div className="container" style={{ textAlign: 'center' }}>
           <p className="bridge-section-label">WHERE WE OPERATE</p>
-          <h2 className="bridge-section-heading">Where <span style={{ color: 'var(--color-accent-yellow)' }}>BRIDGE</span> operates</h2>
-          <p className="bridge-section-sub">Starting with two of the world's most complementary technology ecosystems. Expanding from there.</p>
-        </div>
-        <div style={{ display: 'flex', justifyContent: 'center', position: 'relative' }}>
-          <div style={{ width: '100%', maxWidth: '600px', height: 'clamp(350px, 100vw, 600px)', position: 'relative', zIndex: 10 }}>
-            {/* Left side Blue Flare */}
-            <div style={{ position: 'absolute', top: '50%', left: '-30%', transform: 'translateY(-50%)', width: '500px', height: '800px', background: 'radial-gradient(ellipse at center, rgba(53, 118, 193, 0.75) 0%, rgba(53, 118, 193, 0) 70%)', filter: 'blur(50px)', zIndex: -1, pointerEvents: 'none' }}></div>
-            {/* Right side Yellow Flare */}
-            <div style={{ position: 'absolute', top: '50%', right: '-30%', transform: 'translateY(-50%)', width: '500px', height: '800px', background: 'radial-gradient(ellipse at center, rgba(254, 182, 17, 0.45) 0%, rgba(254, 182, 17, 0) 70%)', filter: 'blur(50px)', zIndex: -1, pointerEvents: 'none' }}></div>
-            <GlobeWrapper />
+          <h2 className="bridge-section-heading">
+            Where <span style={{ color: 'var(--color-accent-yellow)' }}>BRIDGE</span> operates
+          </h2>
+          <div className="flex flex-col md:flex-row justify-center items-center gap-6 md:gap-10 mt-6 mb-12">
+            <div className="flex items-center gap-3">
+              <span className="w-4 h-4 rounded-full bg-emerald-500 shadow-[0_0_12px_rgba(16,185,129,0.8)]" style={{ backgroundColor: '#10b981', display: 'inline-block', width: '16px', height: '16px', borderRadius: '50%', boxShadow: '0 0 12px rgba(16,185,129,0.8)' }}></span>
+              <span className="font-semibold tracking-wide text-sm md:text-base" style={{ color: '#ffffff' }}>ACTIVE: AUSTRALIA & INDIA</span>
+            </div>
+            <div className="flex items-center gap-3">
+              <span className="w-4 h-4 rounded-full bg-red-500 shadow-[0_0_12px_rgba(239,68,68,0.8)]" style={{ backgroundColor: '#ef4444', display: 'inline-block', width: '16px', height: '16px', borderRadius: '50%', boxShadow: '0 0 12px rgba(239,68,68,0.8)' }}></span>
+              <span className="font-semibold tracking-wide text-sm md:text-base" style={{ color: '#a3a3a3' }}>COMING SOON: CANADA, UK, UAE</span>
+            </div>
           </div>
+        </div>
+
+        <div className="max-w-6xl mx-auto w-full relative z-10 px-4 md:px-8">
+          {/* Subtle background flares behind map */}
+          <div style={{ position: 'absolute', top: '50%', left: '0%', transform: 'translateY(-50%)', width: '400px', height: '600px', background: 'radial-gradient(ellipse at center, rgba(53, 118, 193, 0.4) 0%, rgba(53, 118, 193, 0) 70%)', filter: 'blur(60px)', zIndex: -1, pointerEvents: 'none' }}></div>
+          <div style={{ position: 'absolute', top: '50%', right: '0%', transform: 'translateY(-50%)', width: '400px', height: '600px', background: 'radial-gradient(ellipse at center, rgba(254, 182, 17, 0.25) 0%, rgba(254, 182, 17, 0) 70%)', filter: 'blur(60px)', zIndex: -1, pointerEvents: 'none' }}></div>
+          
+          <WorldMap
+            dots={[
+              {
+                start: { lat: 40.7128, lng: -74.0060, label: 'USA' }, // USA
+                end: { lat: 51.5074, lng: -0.1278, label: 'UK' }, // UK
+                color: "#ef4444" // Coming Soon (Red)
+              },
+              {
+                start: { lat: 51.5074, lng: -0.1278 }, // UK
+                end: { lat: 25.2048, lng: 55.2708, label: 'UAE' }, // UAE
+                color: "#ef4444" // Coming Soon (Red)
+              },
+              {
+                start: { lat: 25.2048, lng: 55.2708 }, // UAE
+                end: { lat: 20.5937, lng: 78.9629, label: 'INDIA' }, // India
+                color: "#ef4444" // Coming Soon (Red)
+              },
+              {
+                start: { lat: 20.5937, lng: 78.9629 }, // India
+                end: { lat: -25.2744, lng: 133.7751, label: 'AUSTRALIA' }, // Australia
+                color: "#10b981" // Active (Green)
+              }
+            ]}
+          />
         </div>
       </section>
     </div>

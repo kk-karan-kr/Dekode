@@ -37,7 +37,7 @@ function App() {
       <div className="dekode-app">
         <Header />
         <main>
-          <Suspense fallback={null}>
+          <Suspense fallback={<div style={{ minHeight: '100vh' }} />}>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />

@@ -4,6 +4,22 @@ import whoWeWorkWithImg from '../assets/who-we-work-with.jpg';
 import whereWeGoingImg from '../assets/where-we-going.jpg';
 import whyWeExistImg from '../assets/90449.jpg';
 
+const graphNodes = [
+  { id: 1, label: 'AI Strategist', x: 15, y: 25 },
+  { id: 2, label: 'AI Journalist', x: 25, y: 75 },
+  { id: 3, label: 'Software Engineer', x: 50, y: 50 },
+  { id: 4, label: 'Prompt Engineer', x: 80, y: 30 },
+  { id: 5, label: 'Data Scientist', x: 45, y: 85 },
+  { id: 6, label: 'Machine Learning Engineer', x: 75, y: 75 },
+  { id: 7, label: 'Cloud Architect', x: 45, y: 15 },
+  { id: 8, label: 'Product Manager', x: 10, y: 60 },
+  { id: 9, label: 'Ethics Consultant', x: 90, y: 50 },
+];
+
+const graphConnections = [
+  [1, 7], [1, 8], [8, 2], [2, 5], [7, 3], [5, 3], [3, 4], [3, 6], [4, 9], [6, 9], [7, 4], [2, 3], [5, 6], [1, 3]
+];
+
 const About = () => {
   const elementsRef = useRef([]);
 
@@ -96,7 +112,7 @@ const About = () => {
             </div>
             
             <div className="difference-card" ref={addToRefs}>
-              <div className="diff-icon">🤝</div>
+              <div className="diff-icon">📋</div>
               <h3>Accountable</h3>
               <p>We own the outcome, not just the output. If something isn't working, we fix it.</p>
             </div>
@@ -143,6 +159,44 @@ const About = () => {
               </div>
             </div>
 
+          </div>
+        </div>
+      </section>
+
+      {/* Who Do We Work With Connected Graph Section */}
+      <section className="who-do-we-work-with-section" ref={addToRefs}>
+        <div className="container">
+          <h2 className="about-section-title text-center">Who Do We Work With</h2>
+          <p className="about-lead text-center">
+            A dynamic network of professionals driving the future of technology and AI.
+          </p>
+          <div className="graph-container">
+            <div className="connected-graph-track">
+              <svg className="graph-lines" width="100%" height="100%">
+                {graphConnections.map((conn, idx) => {
+                  const n1 = graphNodes.find(n => n.id === conn[0]);
+                  const n2 = graphNodes.find(n => n.id === conn[1]);
+                  return (
+                    <line 
+                      key={idx}
+                      x1={`${n1.x}%`} 
+                      y1={`${n1.y}%`} 
+                      x2={`${n2.x}%`} 
+                      y2={`${n2.y}%`} 
+                    />
+                  );
+                })}
+              </svg>
+              {graphNodes.map(node => (
+                <div className="graph-node" key={node.id} style={{ left: `${node.x}%`, top: `${node.y}%` }}>
+                  <div className="node-content">
+                    <div className="node-label">{node.label}</div>
+                    <div className="node-pin-line"></div>
+                    <div className="node-dot"></div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

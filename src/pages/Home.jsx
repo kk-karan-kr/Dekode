@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect, Suspense, lazy } from 'react';
 import { Link } from 'react-router-dom';
 import LazySection from '../components/LazySection';
+import AuroraBackground from '../components/AuroraBackground';
 import './Home.css';
 
 const ServicesGrid = lazy(() => import('../components/ServicesGrid'));
@@ -50,31 +51,29 @@ const Home = () => {
   return (
     <div className="page-container">
       {/* Hero Section - Loads Immediately */}
-      <section className="home-hero" style={{ minHeight: '80vh', paddingBottom: '2rem' }}>
-        <div className="hero-background">
-          <div className="grid-overlay"></div>
-          <div className="glow-orb orb-1"></div>
-          <div className="glow-orb orb-2" style={{ top: '20%', right: '-10%', bottom: 'auto' }}></div>
-          <div className="glow-orb orb-3"></div>
-        </div>
-        <div className="container hero-content text-center">
-          <h1 className="hero-headline animate-fade-in mb-6">
-            Future-proof your business and people with <span className="highlight-yellow">secure AI</span> and <span className="highlight-blue">scalable IT foundations</span>
-          </h1>
-          <p className="hero-subheadline animate-fade-in mx-auto">
-            We combine AI consultancy, solution development, infrastructure, and security to deliver real systems your team can adopt from day one.
-          </p>
-          <div className="hero-actions animate-fade-in">
-            <a href="mailto:pm@dekodeglobal.com" className="btn-primary">Book a Discovery Call</a>
-            <Link to="/#services" className="btn-secondary">EXPLORE CAPABILITIES</Link>
+      <section className="home-hero">
+        <AuroraBackground showRadialGradient={true} className="home-hero-aurora">
+          <div className="container hero-content text-center">
+            <div className="aurora-hero-inner">
+              <h1 className="hero-headline aurora-hero-fade mb-6">
+                Future-proof your business and people with{' '}
+                <span className="highlight-yellow">secure AI</span>{' '}and{' '}
+                <span className="highlight-blue">scalable IT foundations</span>
+              </h1>
+              <p className="hero-subheadline aurora-hero-fade mx-auto" style={{ animationDelay: '0.15s' }}>
+                We combine AI consultancy, solution development, infrastructure, and security to deliver real systems your team can adopt from day one.
+              </p>
+              <div className="hero-actions aurora-hero-fade" style={{ animationDelay: '0.3s' }}>
+                <a href="mailto:pm@dekodeglobal.com" className="btn-primary">Book a Discovery Call</a>
+                <Link to="/#services" className="btn-secondary">EXPLORE CAPABILITIES</Link>
+              </div>
+            </div>
           </div>
-
-
-        </div>
+        </AuroraBackground>
       </section>
 
       {/* Services Section */}
-      <LazySection minHeight="40vh" rootMargin="500px">
+      <LazySection minHeight="16vh" rootMargin="500px">
         <section id="services" className="py-20 bg-dark-layer">
           <Suspense fallback={<div style={{ minHeight: '40rem' }} />}>
             <FadeInSection>
@@ -90,7 +89,7 @@ const Home = () => {
 
 
       {/* Methodology Section */}
-      <LazySection minHeight="40vh" rootMargin="500px">
+      <LazySection minHeight="16vh" rootMargin="500px">
         <section id="methodology" className="py-20">
           <Suspense fallback={<div style={{ minHeight: '35rem' }} />}>
             <FadeInSection>
@@ -106,7 +105,7 @@ const Home = () => {
 
 
       {/* Outcomes Section */}
-      <LazySection minHeight="40vh" rootMargin="500px">
+      <LazySection minHeight="16vh" rootMargin="500px">
         <section className="py-20 bg-dark-layer">
           <Suspense fallback={<div style={{ minHeight: '35rem' }} />}>
             <FadeInSection>
@@ -136,7 +135,7 @@ const Home = () => {
       </LazySection>
 
       {/* Principles Section */}
-      <LazySection minHeight="40vh" rootMargin="500px">
+      <LazySection minHeight="16vh" rootMargin="500px">
         <section className="py-20">
           <Suspense fallback={<div style={{ minHeight: '35rem' }} />}>
             <FadeInSection>
@@ -170,7 +169,7 @@ const Home = () => {
       </LazySection>
 
       {/* Portfolio Showcase */}
-      <LazySection minHeight="40vh" rootMargin="500px">
+      <LazySection minHeight="16vh" rootMargin="500px">
         <Suspense fallback={<div style={{ minHeight: '40rem' }} />}>
           <FadeInSection>
             <PortfolioShowcase />

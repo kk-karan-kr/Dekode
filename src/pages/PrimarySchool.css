@@ -8,7 +8,7 @@
 /* Hero Section */
 .ps-hero {
   position: relative;
-  padding: 18rem 0 10rem;
+  padding: 7.2rem 0 4rem;
   overflow: hidden;
   text-align: center;
 }
@@ -39,7 +39,7 @@
   font-family: var(--font-heading);
   font-size: 4rem;
   color: #fff;
-  margin-bottom: 1rem;
+  margin-bottom: 0.4rem;
   text-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
   letter-spacing: 1px;
 }
@@ -65,20 +65,20 @@
 
 /* Overview Section Layout */
 .ps-overview-section {
-  padding: 5rem 0;
+  padding: 2rem 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .ps-overview-split {
   display: flex;
-  gap: 3rem;
+  gap: 1.2rem;
   align-items: stretch;
 }
 
 .ps-overview-main-card {
   flex: 1;
   background: #ffffff;
-  padding: 3rem;
+  padding: 1.2rem;
   border-radius: 16px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
   border-left: 5px solid var(--color-accent-blue);
@@ -90,7 +90,7 @@
 .ps-overview-main-card h3 {
   font-family: var(--font-heading);
   font-size: 2rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.6rem;
 }
 
 .ps-lead-text {
@@ -112,7 +112,7 @@
   background: #ffffff;
   border: 1px solid #e0e0e0;
   border-radius: 12px;
-  padding: 2rem;
+  padding: 0.8rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
 }
@@ -131,7 +131,7 @@
   font-family: var(--font-heading);
   font-size: 1.15rem;
   color: var(--color-accent-blue) !important;
-  margin-bottom: 1rem;
+  margin-bottom: 0.4rem;
 }
 
 .ps-stat-card p {
@@ -146,7 +146,7 @@
 
 /* Sections */
 .ps-details-section, .ps-help-section {
-  padding: 6rem 0;
+  padding: 2.4rem 0;
 }
 
 .ps-details-section {
@@ -160,7 +160,7 @@
 .ps-split {
   display: flex;
   align-items: center;
-  gap: 4rem;
+  gap: 1.6rem;
 }
 
 .ps-reverse {
@@ -174,7 +174,7 @@
 .ps-gradient-title {
   font-family: var(--font-heading);
   font-size: 2.5rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.6rem;
   color: #043364 !important;
 }
 
@@ -185,7 +185,7 @@
 
 .ps-split-text p {
   line-height: 1.8;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.6rem;
   font-size: 1.05rem;
 }
 

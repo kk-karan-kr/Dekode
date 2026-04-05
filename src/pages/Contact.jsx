@@ -128,9 +128,9 @@ const Contact = () => {
                 <p className="box-desc">
                   The fastest way to get started. We’ll spend 30 minutes understanding your goals, challenges, and priorities, then map out a clear path forward.
                 </p>
-                <button className="schedule-btn-small">
+                <a href="mailto:contactus@dekodeglobal.com" className="schedule-btn-small" style={{ textDecoration: 'none' }}>
                   SCHEDULE A 30-MINUTE STRATEGY CALL <span className="arrow">→</span>
-                </button>
+                </a>
                 
                 {/* CSS Phone Placeholder */}
                 <div className="css-phone-graphic small-phone">
@@ -150,22 +150,28 @@ const Contact = () => {
                 <div className="contact-list">
                   <div className="contact-item">
                     <span className="contact-label">Email</span>
-                    <a href="mailto:pm@dekodeglobal.com" className="contact-link blue-link">pm@dekodeglobal.com</a>
+                    <a href="mailto:contactus@dekodeglobal.com" className="contact-link blue-link">contactus@dekodeglobal.com</a>
                   </div>
                   
                   <div className="contact-item">
                     <span className="contact-label">Phone Number</span>
                     <div className="phone-group">
-                      <a href="tel:+61421196363" className="contact-link dark-link">🇦🇺 +61 421 196 363</a>
-                      <a href="tel:+919811510998" className="contact-link dark-link">🇮🇳 +91 98115 10998</a>
+                      <a href="tel:+61421196363" className="contact-link dark-link phone-line-contact">
+                        <span className="flag">🇦🇺</span>
+                        <span className="phone-number">+61 421 196 363</span>
+                      </a>
+                      <a href="tel:+918882848489" className="contact-link dark-link phone-line-contact">
+                        <span className="flag">🇮🇳</span>
+                        <span className="phone-number">+91 88828 48489</span>
+                      </a>
                     </div>
                   </div>
 
                   <div className="contact-item">
                     <span className="contact-label">WhatsApp</span>
-                    <a href="https://wa.me/61421196363" className="contact-link green-link" target="_blank" rel="noopener noreferrer">
+                    <a href="https://wa.me/61421196363" className="contact-link green-link whatsapp-line-contact" target="_blank" rel="noopener noreferrer">
                       <span className="whatsapp-icon">💬</span>
-                      +61 421 196 363
+                      <span className="phone-number">+61 421 196 363</span>
                     </a>
                   </div>
                 </div>

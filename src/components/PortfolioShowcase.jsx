@@ -12,6 +12,8 @@ import smartBrokerImg from '../assets/Smart-Broker.png';
 import smartBrokerLogo from '../assets/smartbroker-logo.png';
 import recycledImg from '../assets/Recycled.png';
 import recycledLogo from '../assets/recycled_logo.png';
+import estradoImg from '../assets/estrado.jpg';
+import estradoLogo from '../assets/estrado_logo.png';
 
 // Import client logos
 import bestonLogo from '../assets/8-beston-global-food-1.png';
@@ -76,6 +78,17 @@ const PortfolioShowcase = () => {
       paragraphs: [
         'Recycled Market is an online market for products made from recycled products.',
         'We designed and developed a browser-independent responsive web portal with integrated CMS.'
+      ]
+    },
+    {
+      id: 6,
+      title: 'Estrado',
+      image: estradoImg,
+      logo: estradoLogo,
+      bgColor: '#F5F3FF',
+      paragraphs: [
+        'Estrado is a smart point of sale solution start-up in Melbourne, Australia. The tech start-up aims to relieve retailers of the traditional clunky and unattractive systems that are far from being integrated into the modern digital world.',
+        'We designed and developed an iPad based Point of Sale system and a web based management console for the retailers.'
       ]
     }
   ];
