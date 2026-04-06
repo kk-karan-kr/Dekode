@@ -17,13 +17,16 @@
   align-items: center;
   justify-content: center;
   /* Soft blue-tinted base so there is ZERO white gap anywhere */
-  background: linear-gradient(
-    160deg,
-    #d6e8fa 0%,      /* very light sky-blue */
-    #eaf3ff 35%,     /* near-white blue     */
-    #fef4dc 65%,     /* very light warm     */
-    #ddeeff 100%     /* light blue          */
-  );
+  background: linear-gradient(160deg,
+      #d6e8fa 0%,
+      /* very light sky-blue */
+      #eaf3ff 35%,
+      /* near-white blue     */
+      #fef4dc 65%,
+      /* very light warm     */
+      #ddeeff 100%
+      /* light blue          */
+    );
   overflow: hidden;
 }
 
@@ -46,25 +49,30 @@
 
   background-image:
     /* ORANGE / WARM sweep (low opacity so it tints not floods) */
-    repeating-linear-gradient(
-      110deg,
-      rgba(254, 182, 17, 0.55)  0%,
-      rgba(255, 140,  0, 0.45)  6%,
-      transparent                9%,
-      transparent               11%,
-      rgba(254, 182, 17, 0.40) 14%
-    ),
+    repeating-linear-gradient(110deg,
+      rgba(254, 182, 17, 0.55) 0%,
+      rgba(255, 140, 0, 0.45) 6%,
+      transparent 9%,
+      transparent 11%,
+      rgba(254, 182, 17, 0.40) 14%),
     /* BLUE / NAVY colour bars */
-    repeating-linear-gradient(
-      100deg,
-      #3576C1  0%,      /* brand blue  */
-      #1a56a8  8%,      /* deeper blue */
-      #FEB611  14%,     /* brand yellow/orange */
-      #FF8C00  19%,     /* warm orange */
-      #043364  25%,     /* navy */
-      #5b9fd6  31%,     /* sky blue */
-      #FEB611  37%,     /* orange again */
-      #3576C1  44%      /* back to blue */
+    repeating-linear-gradient(100deg,
+      #3576C1 0%,
+      /* brand blue  */
+      #1a56a8 8%,
+      /* deeper blue */
+      #FEB611 14%,
+      /* brand yellow/orange */
+      #FF8C00 19%,
+      /* warm orange */
+      #043364 25%,
+      /* navy */
+      #5b9fd6 31%,
+      /* sky blue */
+      #FEB611 37%,
+      /* orange again */
+      #3576C1 44%
+      /* back to blue */
     );
   background-size: 400%, 300%;
   background-position: 50% 50%, 50% 50%;
@@ -73,18 +81,14 @@
 
 /* Radial vignette – pulls aurora from top-right/centre, full coverage */
 .aurora-layer.aurora-radial-mask {
-  -webkit-mask-image: radial-gradient(
-    ellipse 140% 100% at 70% 20%,
-    black 20%,
-    rgba(0,0,0,0.6) 55%,
-    transparent 80%
-  );
-  mask-image: radial-gradient(
-    ellipse 140% 100% at 70% 20%,
-    black 20%,
-    rgba(0,0,0,0.6) 55%,
-    transparent 80%
-  );
+  -webkit-mask-image: radial-gradient(ellipse 140% 100% at 70% 20%,
+      black 20%,
+      rgba(0, 0, 0, 0.6) 55%,
+      transparent 80%);
+  mask-image: radial-gradient(ellipse 140% 100% at 70% 20%,
+      black 20%,
+      rgba(0, 0, 0, 0.6) 55%,
+      transparent 80%);
 }
 
 /* Second shimmer layer – adds depth with a lighter touch */
@@ -93,17 +97,15 @@
   position: absolute;
   inset: 0;
   background-image:
-    repeating-linear-gradient(
-      95deg,
-      rgba(53, 118, 193, 0.5)   0%,
+    repeating-linear-gradient(95deg,
+      rgba(53, 118, 193, 0.5) 0%,
       rgba(254, 182, 17, 0.45) 10%,
-      transparent               14%,
-      transparent               16%,
-      rgba(255, 140,   0, 0.35) 20%,
-      rgba(4,  51, 100, 0.40)  26%,
-      transparent               30%,
-      rgba(53, 118, 193, 0.5)  36%
-    );
+      transparent 14%,
+      transparent 16%,
+      rgba(255, 140, 0, 0.35) 20%,
+      rgba(4, 51, 100, 0.40) 26%,
+      transparent 30%,
+      rgba(53, 118, 193, 0.5) 36%);
   background-size: 250%, 150%;
   background-attachment: fixed;
   background-position: 50% 50%, 50% 50%;
@@ -113,13 +115,23 @@
 
 /* ---------- Keyframes ---------- */
 @keyframes aurora-drift {
-  from { background-position: 50% 50%, 50% 50%; }
-  to   { background-position: 350% 50%, 350% 50%; }
+  from {
+    background-position: 50% 50%, 50% 50%;
+  }
+
+  to {
+    background-position: 350% 50%, 350% 50%;
+  }
 }
 
 @keyframes aurora-drift-reverse {
-  from { background-position: 350% 50%; }
-  to   { background-position: 50%   50%; }
+  from {
+    background-position: 350% 50%;
+  }
+
+  to {
+    background-position: 50% 50%;
+  }
 }
 
 /* ---------- Content sits above the aurora ---------- */

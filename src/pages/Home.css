@@ -63,13 +63,11 @@
 }
 
 .highlight-yellow { 
-  color: var(--color-accent-yellow); 
-  text-shadow: 0 0 15px rgba(254, 182, 17, 0.4);
+  color: var(--color-accent-blue); 
   font-weight: 800;
 }
 .highlight-blue { 
   color: var(--color-accent-blue); 
-  text-shadow: 0 0 15px rgba(53, 118, 193, 0.4);
   font-weight: 800;
 }
 
