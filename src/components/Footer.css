@@ -40,11 +40,12 @@
 /* CTA Section Styles */
 .footer-cta-container {
   display: grid;
-  grid-template-columns: 1.2fr 1fr;
+  grid-template-columns: 1.5fr 1fr;
   gap: 4rem;
   margin-bottom: 6rem;
   padding-bottom: 4rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  align-items: flex-start;
 }
 
 .footer-cta-left h2 {
@@ -91,20 +92,18 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-left: 2rem;
 }
 
 .contact-block h4 {
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 0.85rem;
-  font-weight: 500;
-  margin-bottom: 0.5rem;
-  font-family: monospace;
+  color: white;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
 }
 
 .footer-email-link {
   color: white;
-  font-size: 1.6rem;
+  font-size: 1.3rem;
   font-weight: 600;
   text-decoration: none;
   transition: color 0.3s ease;
@@ -120,22 +119,30 @@
   gap: 1rem;
 }
 
-.phone-line .flag {
-  font-size: 1.6rem;
+.phone-line .country-code {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #FEB611;
+  background: rgba(254, 182, 17, 0.1);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  min-width: 32px;
+  text-align: center;
 }
 
 .phone-line .phone-number {
   color: white;
-  font-size: 1.6rem;
+  font-size: 1.3rem;
   font-weight: 600;
 }
 
 
 .footer-top {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-columns: 1.5fr 1fr;
   gap: 4rem;
   margin-bottom: 4rem;
+  align-items: flex-start;
 }
 
 .footer-brand .logo-text {
@@ -180,7 +187,8 @@
 
 .footer-links-group h4 {
   color: #ffffff;
-  font-size: 1.1rem;
+  font-size: 1.3rem;
+  font-weight: 600;
   margin-bottom: 1.5rem;
   position: relative;
   display: inline-block;

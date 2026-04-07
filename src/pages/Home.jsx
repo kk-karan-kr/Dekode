@@ -64,7 +64,7 @@ const Home = () => {
                 We combine AI consultancy, solution development, infrastructure, and security to deliver real systems your team can adopt from day one.
               </p>
               <div className="hero-actions aurora-hero-fade" style={{ animationDelay: '0.3s' }}>
-                <a href="mailto:pm@dekodeglobal.com" className="btn-primary">Book a Discovery Call</a>
+                <a href="https://calendly.com/dekodeglobal/30min" target="_blank" rel="noopener noreferrer" className="btn-primary">Book a Discovery Call</a>
                 <Link to="/#services" className="btn-secondary">EXPLORE CAPABILITIES</Link>
               </div>
             </div>

@@ -315,7 +315,7 @@
 
 /* Who Do We Work With Network Graph */
 .who-do-we-work-with-section {
-  padding: 10rem 0 12rem;
+  padding: 4rem 0;
   background: var(--color-bg-dark);
   position: relative;
   overflow: hidden;
@@ -335,7 +335,7 @@
   height: 550px;
   background: transparent;
   border-radius: 24px;
-  margin-top: 5rem;
+  margin-top: 2rem;
   overflow: visible;
   perspective: 1400px;
 }

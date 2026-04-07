@@ -83,7 +83,7 @@ const Header = () => {
           <li><Link to="/bridge" className="mobile-nav-link" onClick={closeMobileMenu}>Bridge</Link></li>
         </ul>
         <div className="mobile-nav-cta">
-          <a href="mailto:contactus@dekodeglobal.com" className="btn-primary glow-btn w-full text-center block" style={{ textDecoration: 'none' }} onClick={closeMobileMenu}>
+          <a href="https://calendly.com/dekodeglobal/30min" target="_blank" rel="noopener noreferrer" className="btn-primary glow-btn w-full text-center block" style={{ textDecoration: 'none' }} onClick={closeMobileMenu}>
             Book Discovery Call
           </a>
         </div>

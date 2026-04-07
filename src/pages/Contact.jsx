@@ -128,7 +128,7 @@ const Contact = () => {
                 <p className="box-desc">
                   The fastest way to get started. We’ll spend 30 minutes understanding your goals, challenges, and priorities, then map out a clear path forward.
                 </p>
-                <a href="mailto:contactus@dekodeglobal.com" className="schedule-btn-small" style={{ textDecoration: 'none' }}>
+                <a href="https://calendly.com/dekodeglobal/30min" target="_blank" rel="noopener noreferrer" className="schedule-btn-small" style={{ textDecoration: 'none' }}>
                   SCHEDULE A 30-MINUTE STRATEGY CALL <span className="arrow">→</span>
                 </a>
                 

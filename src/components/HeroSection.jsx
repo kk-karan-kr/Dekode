@@ -37,7 +37,7 @@ const HeroSection = () => {
           </p>
           
           <div className={`hero-actions ${textStage >= 3 ? 'visible' : ''}`} style={{ justifyContent: 'flex-start' }}>
-            <a href="mailto:pm@dekodeglobal.com" className="btn-primary" style={{ display: 'inline-block', textDecoration: 'none', position: 'relative', zIndex: 20 }}>BOOK A DISCOVERY CALL &rarr;</a>
+            <a href="https://calendly.com/dekodeglobal/30min" target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ display: 'inline-block', textDecoration: 'none', position: 'relative', zIndex: 20 }}>BOOK A DISCOVERY CALL &rarr;</a>
             <a href="#services" className="btn-secondary" style={{ display: 'inline-block', textDecoration: 'none', position: 'relative', zIndex: 20 }}>EXPLORE CAPABILITIES</a>
           </div>
         </div>

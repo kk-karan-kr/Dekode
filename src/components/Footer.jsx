@@ -28,11 +28,11 @@ const Footer = () => {
               or building something new, DEKODE can help. Start with a discovery call 
               and we’ll map the fastest path to a secure, usable outcome.
             </p>
-            <a href="mailto:contactus@dekodeglobal.com" className="btn-primary">
+            <a href="https://calendly.com/dekodeglobal/30min" target="_blank" rel="noopener noreferrer" className="btn-primary">
               BOOK A DISCOVERY CALL <span style={{ marginLeft: '8px' }}>→</span>
             </a>
           </div>
-          
+
           <div className="footer-cta-right">
             <div className="contact-block">
               <h4>Email</h4>
@@ -41,11 +41,11 @@ const Footer = () => {
             <div className="contact-block" style={{ marginTop: '2.5rem' }}>
               <h4>Phone Number</h4>
               <div className="phone-line">
-                <span className="flag" role="img" aria-label="Australia flag">🇦🇺</span>
+                <span className="country-code">AU</span>
                 <span className="phone-number">+61 421 196 363</span>
               </div>
               <div className="phone-line" style={{ marginTop: '0.8rem' }}>
-                <span className="flag" role="img" aria-label="India flag">🇮🇳</span>
+                <span className="country-code">IN</span>
                 <span className="phone-number">+91 88828 48489</span>
               </div>
             </div>
@@ -67,8 +67,8 @@ const Footer = () => {
               </a>
             </div>
           </div>
-          
-          <div className="footer-links-group" style={{ marginLeft: 'auto' }}>
+
+          <div className="footer-links-group">
             <h4>Services</h4>
             <ul>
               <li><a href="/services#ai-strategy">AI Strategy & Consulting</a></li>
