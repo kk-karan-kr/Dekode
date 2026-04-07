@@ -32,7 +32,7 @@ const PrimarySchool = lazy(() => import('./pages/PrimarySchool'));
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <ScrollToAnchor />
       <div className="dekode-app">
         <Header />
