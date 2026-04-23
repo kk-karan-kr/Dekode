@@ -1,6 +1,7 @@
 import React, { Suspense, lazy } from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import CookieBanner from './components/CookieBanner';
 import ScrollToAnchor from './components/ScrollToAnchor';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
@@ -51,6 +52,7 @@ function App() {
             </Routes>
           </Suspense>
         </main>
+        <CookieBanner />
         <Footer />
       </div>
     </BrowserRouter>

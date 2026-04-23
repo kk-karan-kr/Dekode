@@ -10,7 +10,7 @@ const PrivacyPolicy = () => {
       <div className="container max-w-4xl mx-auto px-6">
         <div className="mb-16 border-b border-white/10 pb-10 text-center">
           <h1 className="text-4xl md:text-5xl font-black text-white mb-6 tracking-tight">Privacy Policy</h1>
-          <p className="text-accent-blue font-mono text-sm uppercase tracking-widest">Last updated: {new Date().toLocaleDateString('en-AU')}</p>
+          <p className="text-accent-blue font-mono text-sm uppercase tracking-widest">Last updated: 02/03/2026 </p>
         </div>
 
         <div className="text-gray-300 leading-relaxed text-[1.05rem]">
