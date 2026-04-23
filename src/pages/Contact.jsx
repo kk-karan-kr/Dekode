@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './Contact.css';
 
 // Assets
@@ -7,6 +7,10 @@ import contactMap from '../assets/contact-map.png';
 
 const Contact = () => {
   const [activeFaq, setActiveFaq] = useState(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [cooldownSeconds, setCooldownSeconds] = useState(0);
+  const [formStatus, setFormStatus] = useState({ type: '', message: '' });
+  const cooldownTimerRef = useRef(null);
 
   const toggleFaq = (index) => {
     setActiveFaq(activeFaq === index ? null : index);
@@ -51,6 +55,74 @@ const Contact = () => {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    if (cooldownSeconds <= 0) {
+      return undefined;
+    }
+
+    cooldownTimerRef.current = setTimeout(() => {
+      setCooldownSeconds((current) => current - 1);
+    }, 1000);
+
+    return () => clearTimeout(cooldownTimerRef.current);
+  }, [cooldownSeconds]);
+
+  useEffect(() => {
+    return () => {
+      if (cooldownTimerRef.current) {
+        clearTimeout(cooldownTimerRef.current);
+      }
+    };
+  }, []);
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    setIsSubmitting(true);
+    setFormStatus({ type: '', message: '' });
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+
+    const payload = {
+      fullName: formData.get('fullName')?.toString() || '',
+      email: formData.get('email')?.toString() || '',
+      company: formData.get('company')?.toString() || '',
+      lookingFor: formData.get('lookingFor')?.toString() || '',
+      message: formData.get('message')?.toString() || '',
+      website: formData.get('website')?.toString() || '',
+    };
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || 'Something went wrong while sending your message.');
+      }
+
+      setFormStatus({
+        type: 'success',
+        message: 'Thanks. Your message has been sent successfully. Our team will get back to you soon.',
+      });
+      setCooldownSeconds(5);
+    } catch (error) {
+      setFormStatus({
+        type: 'error',
+        message: error.message || 'Your message could not be sent. Please try again in a moment.',
+      });
+      setCooldownSeconds(5);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <div className="page-container contact-page-v2">
 
@@ -88,16 +160,16 @@ const Contact = () => {
               </h2>
               
               <div className="form-wrapper">
-                <form className="contact-form" onSubmit={(e) => e.preventDefault()}>
+                <form className="contact-form" onSubmit={handleSubmit}>
                   <div className="form-row">
-                    <input type="text" id="fullName" placeholder="Full Name*" required className="form-input" />
-                    <input type="email" id="email" placeholder="Email*" required className="form-input" />
+                    <input type="text" id="fullName" name="fullName" placeholder="Full Name*" required className="form-input" />
+                    <input type="email" id="email" name="email" placeholder="Email*" required className="form-input" />
                   </div>
                   
                   <div className="form-row">
-                    <input type="text" id="company" placeholder="Company / Project (Optional)" className="form-input" />
+                    <input type="text" id="company" name="company" placeholder="Company / Project (Optional)" className="form-input" />
                     <div className="select-container">
-                      <select id="lookingFor" className="form-input select-input" required defaultValue="">
+                      <select id="lookingFor" name="lookingFor" className="form-input select-input" required defaultValue="">
                         <option value="" disabled>What are you looking for?</option>
                         <option value="ai">AI Integration</option>
                         <option value="modernisation">System Modernisation</option>
@@ -109,13 +181,30 @@ const Contact = () => {
                   </div>
 
                   <div className="form-row full-width">
-                    <textarea id="message" placeholder="Message" rows="6" className="form-input textarea-input" required></textarea>
+                    <textarea id="message" name="message" placeholder="Message" rows="6" className="form-input textarea-input" required></textarea>
                   </div>
 
-                  <button type="submit" className="form-submit-btn">
-                    Submit 
+                  <div className="form-honeypot" aria-hidden="true">
+                    <label htmlFor="website">Website</label>
+                    <input type="text" id="website" name="website" tabIndex="-1" autoComplete="off" />
+                  </div>
+
+                  <button type="submit" className="form-submit-btn" disabled={isSubmitting || cooldownSeconds > 0}>
+                    {isSubmitting
+                      ? 'Sending...'
+                      : cooldownSeconds > 0
+                        ? `Wait ${cooldownSeconds}s`
+                        : formStatus.type === 'success'
+                          ? 'Sent'
+                          : 'Submit'}
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{marginLeft: '8px'}}><path d="M5 12h14"></path><path d="M12 5l7 7-7 7"></path></svg>
                   </button>
+
+                  {formStatus.message ? (
+                    <p className={`form-status-message ${formStatus.type === 'success' ? 'success' : 'error'}`} aria-live="polite">
+                      {formStatus.message}
+                    </p>
+                  ) : null}
                 </form>
               </div>
             </div>

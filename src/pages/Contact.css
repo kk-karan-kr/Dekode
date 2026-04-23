@@ -224,6 +224,39 @@
   margin-top: 0.5rem;
 }
 .form-submit-btn:hover { background: #2f69ab; }
+.form-submit-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.form-status-message {
+  margin-top: 0.35rem;
+  padding: 0.9rem 1rem;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.form-status-message.success {
+  color: #15803d;
+  background: rgba(21, 128, 61, 0.08);
+  border: 1px solid rgba(21, 128, 61, 0.18);
+}
+
+.form-status-message.error {
+  color: #b91c1c;
+  background: rgba(185, 28, 28, 0.08);
+  border: 1px solid rgba(185, 28, 28, 0.16);
+}
+
+.form-honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
 
 .info-column {
   display: flex;

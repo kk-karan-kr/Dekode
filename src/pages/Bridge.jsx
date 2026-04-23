@@ -89,6 +89,75 @@ const CyberPillarCard = ({ icon, title, desc, accent }) => {
 
 
 const Bridge = () => {
+  const [bridgeEmail, setBridgeEmail] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [cooldownSeconds, setCooldownSeconds] = useState(0);
+  const [formStatus, setFormStatus] = useState({ type: '', message: '' });
+  const cooldownTimerRef = useRef(null);
+
+  useEffect(() => {
+    if (cooldownSeconds <= 0) {
+      return undefined;
+    }
+
+    cooldownTimerRef.current = setTimeout(() => {
+      setCooldownSeconds((current) => current - 1);
+    }, 1000);
+
+    return () => clearTimeout(cooldownTimerRef.current);
+  }, [cooldownSeconds]);
+
+  useEffect(() => {
+    return () => {
+      if (cooldownTimerRef.current) {
+        clearTimeout(cooldownTimerRef.current);
+      }
+    };
+  }, []);
+
+  const handleBridgeSubmit = async (event) => {
+    event.preventDefault();
+    setIsSubmitting(true);
+    setFormStatus({ type: '', message: '' });
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+    const payload = {
+      email: formData.get('email')?.toString() || '',
+      website: formData.get('website')?.toString() || '',
+    };
+
+    try {
+      const response = await fetch('/api/bridge', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || 'Something went wrong while registering your interest.');
+      }
+
+      setFormStatus({
+        type: 'success',
+        message: 'Thanks. Your interest has been submitted successfully and we will keep you updated.',
+      });
+      setCooldownSeconds(5);
+    } catch (error) {
+      setFormStatus({
+        type: 'error',
+        message: error.message || 'Your interest could not be submitted. Please try again in a moment.',
+      });
+      setCooldownSeconds(5);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <div className="page-container bridge-page relative">
       <section className="bridge-hero relative w-full overflow-hidden" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', paddingTop: '20px', background: 'linear-gradient(160deg, #0d2040 0%, #0a192f 50%, #061120 100%)' }}>
@@ -219,17 +288,34 @@ const Bridge = () => {
 
 
           <div className="max-w-2xl mx-auto w-full relative z-30">
-            <form className="bridge-form-new" onSubmit={(e) => e.preventDefault()}>
+            <form className="bridge-form-new" onSubmit={handleBridgeSubmit}>
               <div className="bridge-input-wrapper">
                 <input 
                   type="email" 
+                  name="email"
                   placeholder="Enter your email address" 
                   className="bridge-email-input-new"
+                  value={bridgeEmail}
+                  onChange={(event) => setBridgeEmail(event.target.value)}
                   required
                 />
-                <button type="submit" className="bridge-notify-btn-new">Notify Me</button>
+                <input type="text" name="website" className="bridge-honeypot" tabIndex="-1" autoComplete="off" aria-hidden="true" />
+                <button type="submit" className="bridge-notify-btn-new" disabled={isSubmitting || cooldownSeconds > 0}>
+                  {isSubmitting
+                    ? 'Sending...'
+                    : cooldownSeconds > 0
+                      ? `Wait ${cooldownSeconds}s`
+                      : formStatus.type === 'success'
+                        ? 'Sent'
+                        : 'Notify Me'}
+                </button>
               </div>
             </form>
+            {formStatus.message ? (
+              <p className={`bridge-form-status ${formStatus.type === 'success' ? 'success' : 'error'}`} aria-live="polite">
+                {formStatus.message}
+              </p>
+            ) : null}
             <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '0.85rem', marginTop: '1.2rem', fontWeight: 500, letterSpacing: '0.03em' }}>Be the first to know when BRIDGE launches. No spam, ever.</p>
           </div>
 
