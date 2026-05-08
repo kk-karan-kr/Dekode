@@ -1,4 +1,9 @@
 import { escapeHtml, normalizeBody, sendMail } from './_lib/mail.js';
+import {
+  buildDiscoveryHtml,
+  buildDiscoveryText,
+  validateDiscoveryData,
+} from './_lib/discoverySubmission.js';
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -10,14 +15,42 @@ export default async function handler(req, res) {
 
   try {
     const body = normalizeBody(req);
+    const submissionType = body.submissionType?.trim() || 'contact';
     const fullName = body.fullName?.trim() || '';
     const email = body.email?.trim() || '';
     const company = body.company?.trim() || '';
     const lookingFor = body.lookingFor?.trim() || '';
     const message = body.message?.trim() || '';
     const website = body.website?.trim() || '';
+    const discoveryData = body.discoveryData || {};
 
     if (website) {
+      return res.status(200).json({ ok: true });
+    }
+
+    if (submissionType === 'discovery') {
+      const discoveryWebsite = discoveryData.website?.trim() || '';
+
+      if (discoveryWebsite) {
+        return res.status(200).json({ ok: true });
+      }
+
+      const validationError = validateDiscoveryData(discoveryData, emailPattern);
+
+      if (validationError) {
+        return res.status(400).json({ error: validationError });
+      }
+
+      const companyName = discoveryData.companyName?.trim() || 'Unknown Company';
+      const contactEmail = discoveryData.contactEmail?.trim() || '';
+
+      await sendMail({
+        subject: `New Discovery Questionnaire - ${companyName}`,
+        replyTo: contactEmail,
+        text: buildDiscoveryText(discoveryData),
+        html: buildDiscoveryHtml(discoveryData),
+      });
+
       return res.status(200).json({ ok: true });
     }
 
@@ -58,7 +91,7 @@ export default async function handler(req, res) {
 
     return res.status(200).json({ ok: true });
   } catch (error) {
-    console.error('Contact form send failed:', error);
+    console.error('Contact endpoint send failed:', error);
     return res.status(500).json({ error: 'We could not send your message right now. Please try again shortly.' });
   }
 }

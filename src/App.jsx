@@ -17,6 +17,7 @@ import './components/PortfolioShowcase.css';
 import './components/ServicesGrid.css';
 
 import './pages/Contact.css';
+import './pages/Discovery.css';
 import './pages/FoodManufacture.css';
 import './pages/PrimarySchool.css';
 
@@ -24,6 +25,7 @@ import './pages/PrimarySchool.css';
 const Home = lazy(() => import('./pages/Home'));
 const About = lazy(() => import('./pages/About'));
 const Contact = lazy(() => import('./pages/Contact'));
+const Discovery = lazy(() => import('./pages/Discovery'));
 const Bridge = lazy(() => import('./pages/Bridge'));
 const Services = lazy(() => import('./pages/Services'));
 const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
@@ -43,6 +45,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/discovery" element={<Discovery />} />
               <Route path="/bridge" element={<Bridge />} />
               <Route path="/services" element={<Services />} />
               <Route path="/privacy" element={<PrivacyPolicy />} />
