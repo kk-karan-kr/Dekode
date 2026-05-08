@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./Contact.css";
+import { submitServerForm } from "../lib/submitServerForm";
 
 // Assets
 import contactBanner from "../assets/contact-banner.png";
@@ -101,21 +102,11 @@ const Contact = () => {
     };
 
     try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(payload),
-      });
-
-      const result = await response.json();
-
-      if (!response.ok) {
-        throw new Error(
-          result.error || "Something went wrong while sending your message.",
-        );
-      }
+      await submitServerForm(
+        "/api/contact",
+        payload,
+        "Something went wrong while sending your message.",
+      );
 
       setFormStatus({
         type: "success",
