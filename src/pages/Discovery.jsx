@@ -86,6 +86,7 @@ const sectionSummaries = [
   "Website requirements",
   "Social media presence",
   "Budget and next steps",
+  "Final contact details",
 ];
 
 const initialFormState = {
@@ -854,7 +855,7 @@ const Discovery = () => {
 
             <div className="discovery-section-card">
               <div className="discovery-section-heading">
-                <span>Your Details</span>
+                <span>Section 8</span>
                 <h2>Final Contact Details</h2>
               </div>
               <div className="discovery-grid discovery-grid--two">
