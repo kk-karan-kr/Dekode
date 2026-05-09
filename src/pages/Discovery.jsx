@@ -856,7 +856,7 @@ const Discovery = () => {
             <div className="discovery-section-card">
               <div className="discovery-section-heading">
                 <span>Section 8</span>
-                <h2>Final Contact Details</h2>
+                <h2>Your Contact Details</h2>
               </div>
               <div className="discovery-grid discovery-grid--two">
                 <div className="discovery-field-stack">
