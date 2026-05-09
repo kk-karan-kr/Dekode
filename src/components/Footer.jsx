@@ -24,8 +24,8 @@ const Footer = () => {
               <span className="highlight-yellow">working product?</span>
             </h2>
             <p>
-              If you’re exploring AI, modernising systems, improving user experience, 
-              or building something new, DEKODE can help. Start with a discovery call 
+              If you’re exploring AI, modernising systems, improving user experience,
+              or building something new, DEKODE can help. Start with a discovery call
               and we’ll map the fastest path to a secure, usable outcome.
             </p>
             <a href="https://calendly.com/dekodeglobal/30min" target="_blank" rel="noopener noreferrer" className="btn-primary">
@@ -79,9 +79,9 @@ const Footer = () => {
             </ul>
           </div>
         </div>
-        
+
         <div className="footer-bottom">
-          <p style={{ color: '#ffffff' }}>&copy; {new Date().getFullYear()} DEKODE Consultancy. All rights reserved.</p>
+          <p style={{ color: '#ffffff' }}>&copy; {new Date().getFullYear()} DEKODE Global LLP , All rights reserved.</p>
           <div className="footer-legal">
             <Link to="/privacy">Privacy Policy</Link>
             <Link to="/terms">Terms of Service</Link>
